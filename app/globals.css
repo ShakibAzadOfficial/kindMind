@@ -110,6 +110,10 @@ a {
   flex-wrap: wrap;
 }
 
+.ctaRow {
+  margin-bottom: 18px;
+}
+
 .linkButton {
   display: inline-flex;
   align-items: center;
@@ -170,7 +174,7 @@ a {
   flex-wrap: wrap;
   gap: 12px 18px;
   padding: 0;
-  margin: 22px 0 0;
+  margin: 0;
 }
 
 .statusRow li {
@@ -246,6 +250,10 @@ a {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 14px;
+}
+
+.cards.two {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
 }
 
 .cards.three {
@@ -333,6 +341,43 @@ a {
   border-radius: 14px;
 }
 
+.aboutPreview {
+  padding: 24px;
+  border-radius: 24px;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  box-shadow: var(--shadow);
+}
+
+.aboutText {
+  margin: 0;
+  max-width: 72ch;
+  color: var(--muted);
+  font-size: 1.03rem;
+  line-height: 1.7;
+}
+
+.aboutActions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 18px;
+}
+
+.aboutGrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.aboutHero {
+  padding-bottom: 6px;
+}
+
+.aboutIllustration {
+  max-width: 560px;
+}
+
 .splitBand {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -384,6 +429,7 @@ a {
   .topbar,
   .hero,
   .contentGrid,
+  .aboutGrid,
   .cards,
   .splitBand,
   .contactStrip {
@@ -393,6 +439,7 @@ a {
   .topbar,
   .hero,
   .contentGrid,
+  .aboutGrid,
   .splitBand,
   .contactStrip {
     display: grid;
@@ -429,7 +476,12 @@ a {
 
   .topActions,
   .ctaRow,
-  .actionStrip {
+  .actionStrip,
+  .aboutActions {
     width: 100%;
+  }
+
+  .cards.two {
+    grid-template-columns: 1fr;
   }
 }
