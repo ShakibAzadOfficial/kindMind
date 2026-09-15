@@ -216,6 +216,35 @@ a {
   filter: drop-shadow(var(--shadow));
 }
 
+.homeHeroPhotoFrame {
+  width: min(108%, 650px);
+  margin: 0;
+  padding: 14px;
+  border: 1px solid var(--line);
+  border-radius: 32px;
+  background: rgba(255, 255, 255, 0.78);
+  box-shadow: var(--shadow);
+}
+
+.homeHeroPhoto {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  height: auto;
+  display: block;
+  border-radius: 22px;
+  object-fit: cover;
+}
+
+.homePage .hero {
+  grid-template-columns: 0.95fr 1.05fr;
+  gap: 36px;
+}
+
+.homePage .heroVisual {
+  display: flex;
+  justify-content: center;
+}
+
 .band,
 .panel {
   margin-top: 22px;
@@ -673,6 +702,14 @@ a {
 
   .heroCopy h1 {
     max-width: 100%;
+  }
+
+  .homePage .hero {
+    grid-template-columns: 1fr;
+  }
+
+  .homeHeroPhotoFrame {
+    width: 100%;
   }
 
 }

@@ -145,7 +145,7 @@ function CounselingScene() {
 
 export default function Page() {
   return (
-    <main className="page">
+    <main className="page homePage">
       <header className="topbar">
         <div className="brand">
           <Image className="brandLogo" src={logo} alt="Shaik Lamisa LMHC logo" priority />
@@ -193,7 +193,17 @@ export default function Page() {
           </ul>
         </div>
         <div className="heroVisual">
-          <CounselingScene />
+          <figure className="homeHeroPhotoFrame">
+            <Image
+              className="homeHeroPhoto"
+              src="/images/kindmind-therapy-office.png"
+              alt="A warm, sunlit counseling office with comfortable chairs and plants"
+              width={1506}
+              height={1045}
+              sizes="(max-width: 980px) 100vw, 45vw"
+              priority
+            />
+          </figure>
         </div>
       </section>
 
