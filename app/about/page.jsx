@@ -31,7 +31,7 @@ function Arrow() {
 
 export default function AboutPage() {
   return (
-    <main className="page">
+    <main className="page aboutPage">
       <header className="topbar">
         <div className="brand">
           <Image className="brandLogo" src={logo} alt="Shaik Lamisa LMHC logo" priority />
@@ -41,7 +41,7 @@ export default function AboutPage() {
           </div>
         </div>
         <div className="topActions">
-          <Link className="linkButton ghost" href="/">
+          <Link className="linkButton ghost aboutHomeButton" href="/">
             Home
           </Link>
         </div>

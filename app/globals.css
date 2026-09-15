@@ -66,13 +66,13 @@ a {
 }
 
 .brandLogo {
-  width: 44px;
-  height: 44px;
-  border-radius: 14px;
+  width: 182px;
+  height: 182px;
+  border-radius: 26px;
   object-fit: contain;
   background: rgba(255, 255, 255, 0.82);
   box-shadow: inset 0 0 0 1px rgba(20, 49, 47, 0.08);
-  padding: 4px;
+  padding: 3px;
 }
 
 .eyebrow {
@@ -132,10 +132,16 @@ a {
 }
 
 .linkButton.ghost {
-  background: rgba(255, 255, 255, 0.72);
-  color: var(--accent-strong);
-  border-color: var(--line);
-  box-shadow: none;
+  background: #2a7f78;
+  color: #fff;
+  border: 1px solid #2a7f78;
+  box-shadow: 0 10px 26px rgba(42, 127, 120, 0.22);
+}
+
+.linkButton.ghost:hover {
+  background: var(--accent-strong);
+  border-color: var(--accent-strong);
+  box-shadow: 0 12px 28px rgba(22, 94, 89, 0.28);
 }
 
 .hero {
@@ -183,8 +189,9 @@ a {
   gap: 8px;
   padding: 8px 12px;
   background: rgba(255, 255, 255, 0.7);
-  border: 1px solid var(--line);
+  border: 2px solid rgba(20, 49, 47, 0.34);
   border-radius: 999px;
+  box-shadow: 0 4px 12px rgba(20, 49, 47, 0.05);
 }
 
 .icon {
@@ -374,6 +381,27 @@ a {
   padding-bottom: 6px;
 }
 
+.aboutHero .ctaRow {
+  margin-top: 20px;
+  margin-bottom: 0;
+}
+
+.aboutPage .band {
+  margin-top: 16px;
+  padding-top: 16px;
+}
+
+.aboutPage .band > .panel {
+  margin-top: 0;
+  border-color: rgba(20, 49, 47, 0.16);
+}
+
+.aboutPage .aboutGrid .infoCard {
+  border-color: rgba(20, 49, 47, 0.2);
+  background: rgba(255, 255, 255, 0.82);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.7);
+}
+
 .profilePhotoFrame {
   width: min(100%, 430px);
   margin: 0 auto;
@@ -406,23 +434,168 @@ a {
 }
 
 .profileLinkButton,
-.profileLinkButton:hover {
+.profileLinkButton:hover,
+.linkButton.ghost.intakeLinkButton,
+.linkButton.ghost.intakeLinkButton:hover {
   background: #004eaa;
   color: #ffc252;
 }
 
-.profileLinkButton {
+.profileLinkButton,
+.linkButton.ghost.intakeLinkButton {
+  border-color: #004eaa;
   box-shadow: 0 10px 26px rgba(0, 78, 170, 0.22);
 }
 
-.profileLinkButton:hover {
+.profileLinkButton:hover,
+.linkButton.ghost.intakeLinkButton:hover {
   background: #003f8a;
+  border-color: #003f8a;
   box-shadow: 0 12px 30px rgba(0, 78, 170, 0.3);
 }
 
-.profileLinkButton:focus-visible {
+.profileLinkButton:focus-visible,
+.linkButton.ghost.intakeLinkButton:focus-visible {
   outline: 3px solid rgba(255, 194, 82, 0.65);
   outline-offset: 3px;
+}
+
+.intakeIntro {
+  max-width: 760px;
+  padding: 32px 0 10px;
+}
+
+.intakeIntro h1 {
+  max-width: 12ch;
+  margin: 0;
+  font-size: clamp(2.8rem, 6vw, 5rem);
+  line-height: 1.02;
+  letter-spacing: -0.03em;
+}
+
+.intakeLayout {
+  display: grid;
+  grid-template-columns: minmax(0, 1.3fr) minmax(300px, 0.7fr);
+  gap: 22px;
+  align-items: start;
+}
+
+.intakeFormPanel,
+.intakeContact {
+  margin-top: 22px;
+}
+
+.privacyNotice {
+  margin-bottom: 22px;
+  padding: 16px 18px;
+  border: 1px solid rgba(239, 143, 102, 0.3);
+  border-left: 4px solid var(--warm);
+  border-radius: 14px;
+  background: rgba(255, 248, 241, 0.86);
+}
+
+.privacyNotice strong {
+  display: block;
+  margin-bottom: 4px;
+}
+
+.privacyNotice p {
+  margin: 0;
+  color: var(--muted);
+}
+
+.intakeForm {
+  display: grid;
+  gap: 17px;
+}
+
+.formRow {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.intakeForm label:not(.consentRow) {
+  display: grid;
+  gap: 7px;
+  color: var(--text);
+  font-weight: 700;
+}
+
+.intakeForm input,
+.intakeForm textarea {
+  width: 100%;
+  border: 1px solid rgba(20, 49, 47, 0.2);
+  border-radius: 13px;
+  background: rgba(255, 255, 255, 0.9);
+  color: var(--text);
+  font: inherit;
+}
+
+.intakeForm input {
+  min-height: 48px;
+  padding: 10px 13px;
+}
+
+.intakeForm textarea {
+  min-height: 150px;
+  padding: 12px 13px;
+  resize: vertical;
+}
+
+.intakeForm input:focus,
+.intakeForm textarea:focus {
+  border-color: var(--accent);
+  outline: 3px solid rgba(42, 127, 120, 0.14);
+}
+
+.consentRow {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  color: var(--muted);
+  font-size: 0.94rem;
+}
+
+.consentRow input {
+  width: 18px;
+  min-height: 18px;
+  margin-top: 2px;
+  flex: 0 0 auto;
+}
+
+.intakeSubmit {
+  width: fit-content;
+  cursor: pointer;
+  font: inherit;
+}
+
+.intakeContactLinks {
+  display: grid;
+  gap: 12px;
+  margin-top: 22px;
+}
+
+.intakeContactLinks a {
+  display: grid;
+  gap: 3px;
+  padding: 15px;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.72);
+  overflow-wrap: anywhere;
+}
+
+.intakeContactLinks a:hover {
+  border-color: var(--accent);
+}
+
+.intakeContactLinks span {
+  color: var(--muted);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
 }
 
 .splitBand {
@@ -479,7 +652,8 @@ a {
   .aboutGrid,
   .cards,
   .splitBand,
-  .contactStrip {
+  .contactStrip,
+  .intakeLayout {
     grid-template-columns: 1fr;
   }
 
@@ -488,7 +662,8 @@ a {
   .contentGrid,
   .aboutGrid,
   .splitBand,
-  .contactStrip {
+  .contactStrip,
+  .intakeLayout {
     display: grid;
   }
 
@@ -505,6 +680,12 @@ a {
 @media (max-width: 640px) {
   .page {
     width: min(100% - 20px, 1160px);
+  }
+
+  .brandLogo {
+    width: 96px;
+    height: 96px;
+    border-radius: 20px;
   }
 
   .panel,
@@ -529,6 +710,10 @@ a {
   }
 
   .cards.two {
+    grid-template-columns: 1fr;
+  }
+
+  .formRow {
     grid-template-columns: 1fr;
   }
 }

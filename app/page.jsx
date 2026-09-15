@@ -58,7 +58,7 @@ const processSteps = [
 ];
 
 const bookingUrl = process.env.NEXT_PUBLIC_BOOKING_URL || 'https://simplepractice.com';
-const intakeUrl = process.env.NEXT_PUBLIC_INTAKE_URL || 'https://simplepractice.com';
+const intakeUrl = '/intake';
 const psychologyTodayUrl = 'https://www.psychologytoday.com/us/therapists/lamisa-shaik-new-york-ny/1517949';
 const phoneNumber = '(347) 901-8676';
 
@@ -158,9 +158,6 @@ export default function Page() {
           <Link className="linkButton ghost" href="/about">
             About Me
           </Link>
-          <a className="linkButton ghost" href={psychologyTodayUrl} target="_blank" rel="noreferrer">
-            Psychology Today
-          </a>
           <a className="linkButton ghost" href={`tel:${phoneNumber.replace(/[^0-9+]/g, '')}`}>
             Call
             <PhoneIcon />
@@ -184,10 +181,10 @@ export default function Page() {
               Schedule a consult
               <Arrow />
             </a>
-            <a className="linkButton ghost" href={intakeUrl} target="_blank" rel="noreferrer">
+            <Link className="linkButton ghost intakeLinkButton" href={intakeUrl}>
               Start intake
               <Arrow />
-            </a>
+            </Link>
           </div>
           <ul className="statusRow" aria-label="At a glance">
             <li><ShieldIcon /> Accepting new clients</li>
@@ -340,13 +337,13 @@ export default function Page() {
               <strong>Schedule through the booking link</strong>
             </div>
           </a>
-          <a className="contactItem action" href={intakeUrl} target="_blank" rel="noreferrer">
+          <Link className="contactItem action" href={intakeUrl}>
             <Arrow />
             <div>
-              <span className="contactLabel">Secure intake</span>
-              <strong>Complete forms outside the site</strong>
+              <span className="contactLabel">Initial intake</span>
+              <strong>Send a consultation request</strong>
             </div>
-          </a>
+          </Link>
         </div>
       </section>
     </main>
