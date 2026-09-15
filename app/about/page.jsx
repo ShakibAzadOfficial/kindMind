@@ -4,6 +4,14 @@ import logo from '../../logo/ShaikLamisaLMHC.png';
 
 const psychologyTodayUrl =
   'https://www.psychologytoday.com/us/therapists/lamisa-shaik-new-york-ny/1517949';
+const zocdocUrl = 'https://www.zocdoc.com/professional/shaik-lamisa-lmhc-638091';
+const headwayUrl = 'https://care.headway.co/providers/shaik-lamisa';
+
+const profileLinks = [
+  { label: 'Psychology Today', href: psychologyTodayUrl },
+  { label: 'Zocdoc', href: zocdocUrl },
+  { label: 'Headway', href: headwayUrl },
+];
 
 const approachPoints = [
   'I like to keep the work collaborative, steady, and honest',
@@ -17,41 +25,6 @@ function Arrow() {
   return (
     <svg viewBox="0 0 24 24" aria-hidden="true" className="icon">
       <path d="M5 12h13.2m0 0-5.4-5.4M18.2 12l-5.4 5.4" />
-    </svg>
-  );
-}
-
-function AboutIllustration() {
-  return (
-    <svg viewBox="0 0 560 520" role="img" aria-label="Counseling illustration" className="illustration aboutIllustration">
-      <defs>
-        <linearGradient id="aboutBg" x1="0" y1="0" x2="1" y2="1">
-          <stop offset="0%" stopColor="#f7faf8" />
-          <stop offset="100%" stopColor="#e2ece9" />
-        </linearGradient>
-        <linearGradient id="aboutWindow" x1="0" y1="0" x2="1" y2="1">
-          <stop offset="0%" stopColor="#bfe0ea" />
-          <stop offset="100%" stopColor="#edf6f7" />
-        </linearGradient>
-      </defs>
-      <rect width="560" height="520" rx="32" fill="url(#aboutBg)" />
-      <rect x="42" y="40" width="476" height="440" rx="30" fill="#ffffff" opacity="0.72" />
-      <rect x="78" y="82" width="146" height="174" rx="22" fill="url(#aboutWindow)" />
-      <circle cx="180" cy="140" r="30" fill="#f29e70" />
-      <path d="M88 218c24-22 50-33 78-33 29 0 52 10 79 28v53H88z" fill="#bddacc" />
-      <rect x="250" y="96" width="150" height="18" rx="9" fill="#d7e0df" />
-      <rect x="250" y="126" width="180" height="18" rx="9" fill="#d7e0df" />
-      <rect x="250" y="156" width="162" height="18" rx="9" fill="#d7e0df" />
-      <rect x="96" y="314" width="120" height="72" rx="36" fill="#f0e2d3" />
-      <rect x="244" y="286" width="144" height="92" rx="24" fill="#e8ded0" />
-      <circle cx="296" cy="242" r="24" fill="#f2c8ae" />
-      <path d="M276 272c7-16 17-24 28-24s21 8 28 24v44h-56z" fill="#7c8d8a" />
-      <path d="M304 312v96" stroke="#ffffff" strokeWidth="8" strokeLinecap="round" />
-      <path d="M136 340h76" stroke="#9dbbb6" strokeWidth="10" strokeLinecap="round" />
-      <path d="M136 366h96" stroke="#9dbbb6" strokeWidth="10" strokeLinecap="round" />
-      <path d="M160 340v74" stroke="#9dbbb6" strokeWidth="10" strokeLinecap="round" />
-      <circle cx="132" cy="412" r="34" fill="#6ea58d" />
-      <path d="M132 386v52M116 402c10 6 20 10 32 14M148 402c-10 6-20 10-32 14" stroke="#f7f3ec" strokeWidth="5" strokeLinecap="round" />
     </svg>
   );
 }
@@ -71,10 +44,6 @@ export default function AboutPage() {
           <Link className="linkButton ghost" href="/">
             Home
           </Link>
-          <a className="linkButton" href={psychologyTodayUrl} target="_blank" rel="noreferrer">
-            Psychology Today
-            <Arrow />
-          </a>
         </div>
       </header>
 
@@ -85,15 +54,37 @@ export default function AboutPage() {
           <p className="lead">
             Hi, I am Lamisa Shaik, LMHC. I bring warmth, clarity, and cultural awareness to my work with children, adolescents, adults, couples, and groups, and I care about helping clients make sense of the pressure they carry, find steadier ground, and build emotional skills that support everyday life.
           </p>
-          <div className="ctaRow">
-            <a className="linkButton" href={psychologyTodayUrl} target="_blank" rel="noreferrer">
-              Psychology Today profile
-              <Arrow />
-            </a>
+          <div className="ctaRow" aria-label="Lamisa's professional profiles">
+            {profileLinks.map((profile) => (
+              <a
+                className="linkButton profileLinkButton"
+                href={profile.href}
+                target="_blank"
+                rel="noreferrer"
+                key={profile.label}
+              >
+                {profile.label}
+                <Arrow />
+              </a>
+            ))}
           </div>
         </div>
         <div className="heroVisual">
-          <AboutIllustration />
+          <figure className="profilePhotoFrame">
+            <Image
+              className="profilePhoto"
+              src="/images/lamisa-shaik-profile.jpeg"
+              alt="Lamisa Shaik, licensed mental health counselor"
+              width={320}
+              height={400}
+              sizes="(max-width: 980px) 100vw, 42vw"
+              priority
+            />
+            <figcaption>
+              <strong>Lamisa Shaik</strong>
+              <span>LMHC, LPC</span>
+            </figcaption>
+          </figure>
         </div>
       </section>
 

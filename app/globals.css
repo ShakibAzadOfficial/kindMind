@@ -374,8 +374,55 @@ a {
   padding-bottom: 6px;
 }
 
-.aboutIllustration {
-  max-width: 560px;
+.profilePhotoFrame {
+  width: min(100%, 430px);
+  margin: 0 auto;
+  padding: 14px;
+  border: 1px solid var(--line);
+  border-radius: 30px;
+  background: rgba(255, 255, 255, 0.82);
+  box-shadow: var(--shadow);
+}
+
+.profilePhoto {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 20px;
+}
+
+.profilePhotoFrame figcaption {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 14px 6px 2px;
+  color: var(--text);
+}
+
+.profilePhotoFrame figcaption span {
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.profileLinkButton,
+.profileLinkButton:hover {
+  background: #004eaa;
+  color: #ffc252;
+}
+
+.profileLinkButton {
+  box-shadow: 0 10px 26px rgba(0, 78, 170, 0.22);
+}
+
+.profileLinkButton:hover {
+  background: #003f8a;
+  box-shadow: 0 12px 30px rgba(0, 78, 170, 0.3);
+}
+
+.profileLinkButton:focus-visible {
+  outline: 3px solid rgba(255, 194, 82, 0.65);
+  outline-offset: 3px;
 }
 
 .splitBand {
