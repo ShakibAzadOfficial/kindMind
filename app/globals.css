@@ -4,7 +4,7 @@
   --surface-strong: #ffffff;
   --text: #14312f;
   --muted: #54706b;
-  --line: rgba(20, 49, 47, 0.12);
+  --line: rgba(20, 49, 47, 0.24);
   --accent: #2a7f78;
   --accent-strong: #165e59;
   --accent-soft: #d8ece8;
@@ -422,11 +422,11 @@ a {
 
 .aboutPage .band > .panel {
   margin-top: 0;
-  border-color: rgba(20, 49, 47, 0.16);
+  border-color: rgba(20, 49, 47, 0.28);
 }
 
 .aboutPage .aboutGrid .infoCard {
-  border-color: rgba(20, 49, 47, 0.2);
+  border-color: rgba(20, 49, 47, 0.3);
   background: rgba(255, 255, 255, 0.82);
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.7);
 }
@@ -554,7 +554,7 @@ a {
 .intakeForm input,
 .intakeForm textarea {
   width: 100%;
-  border: 1px solid rgba(20, 49, 47, 0.2);
+  border: 1px solid rgba(20, 49, 47, 0.3);
   border-radius: 13px;
   background: rgba(255, 255, 255, 0.9);
   color: var(--text);
