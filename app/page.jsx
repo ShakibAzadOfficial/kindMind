@@ -1,12 +1,14 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import logo from '../logo/ShaikLamisaLMHC.webp';
 import { professionalProfiles, siteUrl } from './site-config';
+import SiteHeader from './SiteHeader';
 
 export const metadata = {
-  title: 'Bengali & English Therapist in West Orange, NJ',
+  title: {
+    absolute: 'Bengali Therapist in Brooklyn, NY & New Jersey | Lamisa Shaik',
+  },
   description:
-    'Lamisa Shaik offers warm, culturally responsive virtual therapy in Bengali and English for clients in New Jersey and New York.',
+    'Lamisa Shaik offers culturally responsive virtual therapy in Bengali and English from Brooklyn, NY and West Orange, NJ for clients across New York and New Jersey.',
   alternates: {
     canonical: `${siteUrl}/`,
   },
@@ -166,41 +168,19 @@ function CounselingScene() {
 export default function Page() {
   return (
     <main className="page homePage">
-      <header className="topbar">
-        <div className="brand">
-          <Image className="brandLogo" src={logo} alt="Shaik Lamisa LMHC logo" priority />
-          <div>
-            <p className="eyebrow">Lamisa Shaik, LMHC</p>
-            <p className="subtle">KindMind Counseling</p>
-          </div>
-        </div>
-        <div className="topActions">
-          <Link className="linkButton ghost" href="/about">
-            About Me
-          </Link>
-          <a className="linkButton ghost" href={`tel:${phoneNumber.replace(/[^0-9+]/g, '')}`}>
-            Call
-            <PhoneIcon />
-          </a>
-          <a className="linkButton" href={bookingUrl} target="_blank" rel="noreferrer">
-            Consult
-            <Arrow />
-          </a>
-        </div>
-      </header>
+      <SiteHeader subtitle="KindMind Counseling" />
 
       <section className="hero">
         <div className="heroCopy">
           <p className="eyebrow">
-            Bengali &amp; English virtual therapy in New Jersey and New York
+            Bengali &amp; English virtual therapy in New York and New Jersey
           </p>
-          <h1>Bilingual therapy that feels warm, clear, and human</h1>
+          <h1>Bilingual Bengali and English therapy in New York and New Jersey</h1>
           <p className="lead">
-            Hi, I am Lamisa, a bilingual Bengali- and English-speaking therapist based in West
-            Orange, New Jersey. If you are feeling overwhelmed, stretched thin, or caught between
-            identity, family expectations, and everyday pressure, you do not have to sort through it
-            alone. I offer virtual therapy to clients in New Jersey and New York with warmth,
-            curiosity, and steady care.
+            Hi, I am Lamisa, a bilingual Bengali and English-speaking therapist based in Brooklyn,
+            New York and West Orange, New Jersey. I offer virtual therapy to clients throughout New
+            York and New Jersey who may be feeling overwhelmed, stretched thin, or caught between
+            identity, family expectations, and everyday pressure.
           </p>
           <div className="ctaRow">
             <a className="linkButton" href={bookingUrl} target="_blank" rel="noreferrer">
@@ -254,8 +234,12 @@ export default function Page() {
             that feels most comfortable.
           </p>
           <div className="aboutActions">
-            <Link className="linkButton" href="/bengali-therapist-new-jersey">
-              Learn about bilingual therapy
+            <Link className="linkButton" href="/bengali-therapist-brooklyn-ny">
+              Bengali therapist in Brooklyn
+              <Arrow />
+            </Link>
+            <Link className="linkButton ghost" href="/bengali-therapist-new-jersey">
+              Bengali therapist in New Jersey
               <Arrow />
             </Link>
           </div>
@@ -290,6 +274,12 @@ export default function Page() {
               </span>
             ))}
           </div>
+          <div className="aboutActions">
+            <Link className="linkButton ghost" href="/services">
+              Explore therapy services
+              <Arrow />
+            </Link>
+          </div>
         </div>
 
         <div className="panel soft">
@@ -323,6 +313,12 @@ export default function Page() {
                 {item}
               </span>
             ))}
+          </div>
+          <div className="aboutActions">
+            <Link className="linkButton ghost" href="/insurance-fees">
+              Insurance and fees details
+              <Arrow />
+            </Link>
           </div>
         </div>
 

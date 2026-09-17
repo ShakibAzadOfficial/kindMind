@@ -13,6 +13,12 @@ describe('production configuration', () => {
     expect(practice.locality).toBe('West Orange');
     expect(practice.region).toBe('NJ');
     expect(practice.languages).toEqual(expect.arrayContaining(['English', 'Bengali']));
+    expect(practice.serviceAreas).toEqual(
+      expect.arrayContaining([
+        { type: 'City', name: 'Brooklyn, New York' },
+        { type: 'City', name: 'West Orange, New Jersey' },
+      ]),
+    );
     expect(professionalProfiles).toEqual([
       'https://www.psychologytoday.com/us/therapists/lamisa-shaik-new-york-ny/1517949',
       'https://www.zocdoc.com/professional/shaik-lamisa-lmhc-638091',
@@ -28,7 +34,10 @@ describe('search engine routes', () => {
     expect(urls).toEqual([
       `${siteUrl}/`,
       `${siteUrl}/about/`,
+      `${siteUrl}/services/`,
+      `${siteUrl}/bengali-therapist-brooklyn-ny/`,
       `${siteUrl}/bengali-therapist-new-jersey/`,
+      `${siteUrl}/insurance-fees/`,
     ]);
     expect(urls).not.toContain(`${siteUrl}/intake/`);
   });

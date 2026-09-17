@@ -139,6 +139,101 @@ html[data-theme='dark'] .languageBangla {
   flex-wrap: wrap;
 }
 
+.siteHeader {
+  align-items: flex-start;
+}
+
+.siteNav {
+  display: flex;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+  gap: 8px;
+  max-width: 710px;
+  padding-top: 8px;
+}
+
+.siteNavLink {
+  display: inline-flex;
+  align-items: center;
+  min-height: 42px;
+  padding: 9px 13px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: var(--surface);
+  color: var(--text);
+  font-size: 0.9rem;
+  font-weight: 700;
+  white-space: nowrap;
+  box-shadow: 0 6px 18px rgba(20, 49, 47, 0.07);
+}
+
+.locationNav {
+  position: relative;
+}
+
+.locationNav summary {
+  cursor: pointer;
+  list-style: none;
+}
+
+.locationNav summary::-webkit-details-marker {
+  display: none;
+}
+
+.locationNav summary span {
+  margin-left: 7px;
+  transition: transform 160ms ease;
+}
+
+.locationNav[open] summary span {
+  transform: rotate(180deg);
+}
+
+.locationMenu {
+  position: absolute;
+  top: calc(100% + 8px);
+  right: 0;
+  z-index: 20;
+  display: grid;
+  min-width: 220px;
+  padding: 8px;
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  background: var(--surface-strong);
+  box-shadow: var(--shadow);
+}
+
+.locationMenu a {
+  padding: 11px 12px;
+  border-radius: 10px;
+  color: var(--text);
+  font-size: 0.92rem;
+  font-weight: 700;
+}
+
+.locationMenu a:hover,
+.locationMenu a:focus-visible {
+  background: var(--accent-soft);
+}
+
+.siteNavLink:hover,
+.siteNavLink:focus-visible {
+  border-color: var(--accent);
+  background: var(--accent-soft);
+}
+
+.siteNavLink.emphasized {
+  border-color: var(--accent);
+  background: var(--accent);
+  color: #fff;
+}
+
+.siteNavLink.emphasized:hover,
+.siteNavLink.emphasized:focus-visible {
+  border-color: var(--accent-strong);
+  background: var(--accent-strong);
+}
+
 .ctaRow {
   margin-bottom: 18px;
 }
@@ -278,6 +373,11 @@ html[data-theme='dark'] .languageBangla {
   margin-top: 20px;
 }
 
+.homePage .heroCopy h1 {
+  max-width: 13ch;
+  font-size: clamp(2.7rem, 5vw, 4.8rem);
+}
+
 .band,
 .panel {
   margin-top: 22px;
@@ -337,8 +437,17 @@ html[data-theme='dark'] .languageBangla {
   min-height: 170px;
 }
 
+.infoCard h2,
 .infoCard h3 {
   margin: 0 0 10px;
+  line-height: 1.15;
+}
+
+.infoCard h2 {
+  font-size: 1.28rem;
+}
+
+.infoCard h3 {
   font-size: 1.03rem;
 }
 
@@ -925,6 +1034,12 @@ body,
     align-items: start;
   }
 
+  .siteNav {
+    justify-content: flex-start;
+    max-width: none;
+    padding-top: 0;
+  }
+
   .heroCopy h1 {
     max-width: 100%;
   }
@@ -975,6 +1090,24 @@ body,
   .actionStrip,
   .aboutActions {
     width: 100%;
+  }
+
+  .siteNavLink {
+    flex: 1 1 calc(50% - 8px);
+    justify-content: center;
+  }
+
+  .locationNav {
+    flex: 1 1 calc(50% - 8px);
+  }
+
+  .locationNav .siteNavLink {
+    width: 100%;
+  }
+
+  .locationMenu {
+    right: auto;
+    left: 0;
   }
 
   .cards.two {

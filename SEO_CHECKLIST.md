@@ -11,7 +11,13 @@ the practice owner to sign in to the relevant services.
   site metadata or provide `NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION` during a build.
 - Deploy the site, then submit
   `https://kindmindpsychotherapy.net/sitemap.xml` in Search Console and request
-  indexing for the home, About, and Bengali therapy pages.
+  indexing for the home, About, Services, Brooklyn, New Jersey, and Insurance &
+  Fees pages.
+- Monitor queries containing "Brooklyn," "Bengali therapist," and individual
+  specialties, along with pages that receive impressions but few clicks.
+- After publishing the Brooklyn page, inspect
+  `https://kindmindpsychotherapy.net/bengali-therapist-brooklyn-ny/` and request
+  indexing.
 
 ## Directory consistency
 
@@ -21,13 +27,15 @@ Use the same public information everywhere:
 - Clinician: Lamisa Shaik, LMHC, LPC
 - Phone: (347) 901-8676
 - Email: shaiklamisa00@gmail.com
-- Base: West Orange, New Jersey
+- Bases: Brooklyn, New York and West Orange, New Jersey
 - Languages: Bengali and English
 - Service: Virtual therapy for clients located in New Jersey and New York
 
 Review Psychology Today, Zocdoc, and Headway. At the time of the site audit,
 Psychology Today displayed a different phone number and New York locations.
-Update only details that accurately reflect the practice and licensing.
+Update only details that accurately reflect the practice and licensing. Make
+sure all three profiles consistently describe Brooklyn, West Orange, Bengali
+language availability, specialties, phone number, and website.
 
 ## Google Business Profile
 

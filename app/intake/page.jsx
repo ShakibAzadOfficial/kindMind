@@ -1,8 +1,6 @@
 'use client';
 
-import Image from 'next/image';
-import Link from 'next/link';
-import logo from '../../logo/ShaikLamisaLMHC.webp';
+import SiteHeader from '../SiteHeader';
 import { buildIntakeEmailUrl } from './intake-email';
 
 const contactEmail = 'shaiklamisa00@gmail.com';
@@ -35,23 +33,7 @@ export default function IntakePage() {
 
   return (
     <main className="page intakePage">
-      <header className="topbar">
-        <div className="brand">
-          <Image className="brandLogo" src={logo} alt="Shaik Lamisa LMHC logo" priority />
-          <div>
-            <p className="eyebrow">Lamisa Shaik, LMHC</p>
-            <p className="subtle">Initial intake request</p>
-          </div>
-        </div>
-        <div className="topActions">
-          <Link className="linkButton ghost" href="/">
-            Home
-          </Link>
-          <Link className="linkButton ghost" href="/about">
-            About Me
-          </Link>
-        </div>
-      </header>
+      <SiteHeader subtitle="Initial intake request" />
 
       <section className="intakeIntro">
         <p className="eyebrow">Start with a conversation</p>

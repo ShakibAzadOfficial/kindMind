@@ -1,34 +1,48 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import logo from '../../logo/ShaikLamisaLMHC.webp';
-import { siteUrl } from '../site-config';
+import SiteHeader from '../SiteHeader';
+import { professionalProfiles, siteUrl } from '../site-config';
 
 export const metadata = {
   title: 'About Lamisa Shaik, Bilingual Therapist',
   description:
-    'Meet Lamisa Shaik, a Bengali- and English-speaking therapist based in West Orange, NJ, licensed in New Jersey and New York.',
+    'Meet Lamisa Shaik, a Bengali- and English-speaking therapist based in Brooklyn, NY and West Orange, NJ, serving clients across New York and New Jersey.',
   alternates: {
     canonical: `${siteUrl}/about/`,
   },
 };
 
-const psychologyTodayUrl =
-  'https://www.psychologytoday.com/us/therapists/lamisa-shaik-new-york-ny/1517949';
-const zocdocUrl = 'https://www.zocdoc.com/professional/shaik-lamisa-lmhc-638091';
-const headwayUrl = 'https://care.headway.co/providers/shaik-lamisa';
-
 const profileLinks = [
-  { label: 'Psychology Today', href: psychologyTodayUrl },
-  { label: 'Zocdoc', href: zocdocUrl },
-  { label: 'Headway', href: headwayUrl },
+  { label: 'Psychology Today', href: professionalProfiles[0] },
+  { label: 'Zocdoc', href: professionalProfiles[1] },
+  { label: 'Headway', href: professionalProfiles[2] },
 ];
 
 const approachPoints = [
-  'I like to keep the work collaborative, steady, and honest',
-  'I often work with children, adolescents, adults, couples, and groups',
-  'I often work with anxiety, ADHD, burnout, relationship stress, and identity-based stress',
-  'I bring a culturally responsive lens that makes room for family, values, and lived experience',
-  'I want clients to leave sessions with something they can actually use',
+  {
+    title: 'A collaborative pace',
+    text: 'We will identify goals together and revisit them as your needs change. I bring clinical guidance without treating you as a problem to be solved or rushing you into a pace that does not feel sustainable.',
+  },
+  {
+    title: 'Care across ages and relationships',
+    text: 'My experience includes work with children, adolescents, adults, couples, families, and groups. The intake process helps us decide which format best fits your concerns, goals, and current circumstances.',
+  },
+  {
+    title: 'Support for everyday pressure',
+    text: 'Sessions can address anxiety, ADHD, burnout, relationship stress, family conflict, life transitions, and identity-based stress. We can look at both immediate coping needs and patterns that keep returning.',
+  },
+  {
+    title: 'Your culture and context matter',
+    text: 'I make room for family roles, immigration, faith, community, gender, values, and lived experience. Cultural responsiveness means staying curious about your story rather than making assumptions about it.',
+  },
+  {
+    title: 'Practical tools you can use',
+    text: 'Alongside reflection and honest conversation, we may practice concrete strategies for communication, emotional regulation, boundaries, organization, and coping between sessions.',
+  },
+  {
+    title: 'Bilingual flexibility',
+    text: 'Sessions may take place in Bengali, English, or a natural combination of both. You can use the language that fits the emotion, memory, or family experience you are trying to describe.',
+  },
 ];
 
 function Arrow() {
@@ -42,20 +56,7 @@ function Arrow() {
 export default function AboutPage() {
   return (
     <main className="page aboutPage">
-      <header className="topbar">
-        <div className="brand">
-          <Image className="brandLogo" src={logo} alt="Shaik Lamisa LMHC logo" priority />
-          <div>
-            <p className="eyebrow">Lamisa Shaik, LMHC</p>
-            <p className="subtle">About me</p>
-          </div>
-        </div>
-        <div className="topActions">
-          <Link className="linkButton ghost aboutHomeButton" href="/">
-            Home
-          </Link>
-        </div>
-      </header>
+      <SiteHeader subtitle="About me" />
 
       <section className="hero aboutHero">
         <div className="heroCopy">
@@ -63,9 +64,9 @@ export default function AboutPage() {
           <h1>Therapy that is steady, respectful, and personal</h1>
           <p className="lead">
             Hi, I am Lamisa Shaik, LMHC, a bilingual Bengali- and English-speaking therapist based
-            in West Orange, New Jersey. I bring warmth, clarity, and cultural awareness to my work
-            with children, adolescents, adults, couples, and groups, helping clients find steadier
-            ground and build emotional skills that support everyday life.
+            in Brooklyn, New York and West Orange, New Jersey. I bring warmth, clarity, and cultural
+            awareness to my work with children, adolescents, adults, couples, and groups, helping
+            clients find steadier ground and build emotional skills that support everyday life.
           </p>
           <div className="ctaRow" aria-label="Lamisa's professional profiles">
             {profileLinks.map((profile) => (
@@ -109,8 +110,9 @@ export default function AboutPage() {
           </div>
           <div className="aboutGrid">
             {approachPoints.map((item) => (
-              <article className="infoCard" key={item}>
-                <p>{item}</p>
+              <article className="infoCard" key={item.title}>
+                <h3>{item.title}</h3>
+                <p>{item.text}</p>
               </article>
             ))}
           </div>
@@ -126,11 +128,38 @@ export default function AboutPage() {
           <p className="aboutText">
             My clinical work includes anxiety, ADHD, coping skills, stress and burnout, relationship
             concerns, family conflict, and the emotional strain that can come with identity and
-            cultural expectations. Based in West Orange, I am licensed in New York and New Jersey
-            and offer virtual sessions in Bengali and English for clients who want care that is
-            flexible and grounded. I also provide group therapy and supervise junior clinicians.
+            cultural expectations. Based in Brooklyn and West Orange, I am licensed in New York and
+            New Jersey and offer virtual sessions in Bengali and English for clients who want care
+            that is flexible and grounded. I also provide group therapy and support newer clinicians
+            through supervision and consultation.
           </p>
         </div>
+      </section>
+
+      <section className="band splitBand">
+        <article className="panel">
+          <div className="sectionHeading">
+            <p className="eyebrow">Education</p>
+            <h2>Graduate training in mental health counseling</h2>
+          </div>
+          <p className="aboutText">
+            Lamisa earned a Master of Arts in Mental Health Counseling from Queens College, City
+            University of New York, and a Bachelor of Science in Psychology with a minor in
+            Sociology from the City College of New York.
+          </p>
+        </article>
+        <article className="panel soft">
+          <div className="sectionHeading">
+            <p className="eyebrow">Clinical experience</p>
+            <h2>Rooted in Brooklyn and community care</h2>
+          </div>
+          <p className="aboutText">
+            Her experience includes private practice, telehealth, and community mental health. She
+            has served as a senior clinician with Brooklyn Total Wellness and as a bilingual
+            therapist in East New York, providing care in Bengali and English to children, adults,
+            and families.
+          </p>
+        </article>
       </section>
     </main>
   );

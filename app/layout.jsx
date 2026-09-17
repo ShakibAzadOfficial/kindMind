@@ -6,13 +6,15 @@ import ThemeToggle from './ThemeToggle';
 export const metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: 'Bengali & English Therapist in West Orange, NJ | Lamisa Shaik',
+    default: 'Bengali Therapist in Brooklyn, NY & New Jersey | Lamisa Shaik',
     template: '%s | KindMind Counseling',
   },
   description:
     'Bilingual therapy in Bengali and English for anxiety, ADHD, relationships, and cultural stress. Virtual care for clients in New Jersey and New York.',
   keywords: [
     'Bengali therapist New Jersey',
+    'Bengali therapist Brooklyn',
+    'Bengali therapist New York',
     'English Bengali therapist',
     'therapist West Orange NJ',
     'virtual therapy New Jersey',
@@ -27,7 +29,7 @@ export const metadata = {
     type: 'website',
     siteName: practice.name,
     locale: 'en_US',
-    title: 'Bengali & English Therapist in West Orange, NJ | Lamisa Shaik',
+    title: 'Bengali Therapist in Brooklyn, NY & New Jersey | Lamisa Shaik',
     description:
       'Warm, culturally responsive virtual therapy in Bengali and English for clients in New Jersey and New York.',
     images: [
@@ -41,7 +43,7 @@ export const metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Bengali & English Therapist in West Orange, NJ | Lamisa Shaik',
+    title: 'Bengali Therapist in Brooklyn, NY & New Jersey | Lamisa Shaik',
     description: 'Virtual therapy in Bengali and English for clients in New Jersey and New York.',
     images: [`${siteUrl}/images/kindmind-therapy-office.webp`],
   },
@@ -71,10 +73,11 @@ const structuredData = {
         addressRegion: practice.region,
         addressCountry: 'US',
       },
-      areaServed: [
-        { '@type': 'State', name: 'New Jersey' },
-        { '@type': 'State', name: 'New York' },
-      ],
+      areaServed: practice.serviceAreas.map((area) => ({
+        '@type': area.type,
+        name: area.name,
+      })),
+      serviceType: 'Virtual psychotherapy',
       availableLanguage: practice.languages,
       sameAs: professionalProfiles,
       founder: { '@id': `${siteUrl}/#lamisa-shaik` },
@@ -87,6 +90,19 @@ const structuredData = {
       jobTitle: 'Licensed Mental Health Counselor',
       worksFor: { '@id': `${siteUrl}/#practice` },
       knowsLanguage: practice.languages,
+      alumniOf: [
+        {
+          '@type': 'CollegeOrUniversity',
+          name: 'Queens College, City University of New York',
+        },
+        {
+          '@type': 'CollegeOrUniversity',
+          name: 'City College of New York, City University of New York',
+        },
+      ],
+      workLocation: practice.serviceAreas
+        .filter((area) => area.type === 'City')
+        .map((area) => ({ '@type': 'Place', name: area.name })),
       image: `${siteUrl}/images/lamisa-shaik-profile.jpeg`,
       sameAs: professionalProfiles,
     },

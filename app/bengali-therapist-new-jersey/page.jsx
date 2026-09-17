@@ -1,12 +1,11 @@
-import Image from 'next/image';
 import Link from 'next/link';
-import logo from '../../logo/ShaikLamisaLMHC.webp';
+import SiteHeader from '../SiteHeader';
 import { siteUrl } from '../site-config';
 
 export const metadata = {
-  title: 'Bengali Therapist in New Jersey and New York',
+  title: 'Bengali Therapist in New Jersey',
   description:
-    'Virtual therapy in Bengali and English with Lamisa Shaik, a culturally responsive therapist based in West Orange, NJ and licensed in New Jersey and New York.',
+    'Virtual therapy in Bengali and English with Lamisa Shaik, a culturally responsive therapist based in West Orange, NJ and Brooklyn, NY.',
   alternates: {
     canonical: `${siteUrl}/bengali-therapist-new-jersey/`,
   },
@@ -38,23 +37,7 @@ function Arrow() {
 export default function BengaliTherapyPage() {
   return (
     <main className="page languagePage">
-      <header className="topbar">
-        <div className="brand">
-          <Image className="brandLogo" src={logo} alt="Shaik Lamisa LMHC logo" priority />
-          <div>
-            <p className="eyebrow">Lamisa Shaik, LMHC</p>
-            <p className="subtle">Bengali &amp; English therapy</p>
-          </div>
-        </div>
-        <nav className="topActions" aria-label="Primary navigation">
-          <Link className="linkButton ghost" href="/">
-            Home
-          </Link>
-          <Link className="linkButton ghost" href="/about">
-            About Me
-          </Link>
-        </nav>
-      </header>
+      <SiteHeader subtitle="Bengali & English therapy" />
 
       <section className="languageHero">
         <div>
@@ -144,8 +127,8 @@ export default function BengaliTherapyPage() {
             <article>
               <h3>Where are sessions available?</h3>
               <p>
-                Lamisa is based in West Orange and provides virtual therapy to clients located in
-                New Jersey and New York.
+                Lamisa is based in West Orange, New Jersey and Brooklyn, New York and provides
+                virtual therapy to clients located throughout both states.
               </p>
             </article>
             <article>
@@ -163,6 +146,9 @@ export default function BengaliTherapyPage() {
             </Link>
             <Link className="linkButton ghost" href="/about">
               Learn more about Lamisa
+            </Link>
+            <Link className="linkButton ghost" href="/bengali-therapist-brooklyn-ny">
+              Explore therapy for Brooklyn clients
             </Link>
           </div>
         </div>

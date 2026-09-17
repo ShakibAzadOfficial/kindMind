@@ -10,6 +10,12 @@ export const practice = {
   locality: 'West Orange',
   region: 'NJ',
   languages: ['English', 'Bengali'],
+  serviceAreas: [
+    { type: 'City', name: 'Brooklyn, New York' },
+    { type: 'City', name: 'West Orange, New Jersey' },
+    { type: 'State', name: 'New York' },
+    { type: 'State', name: 'New Jersey' },
+  ],
 };
 
 export const professionalProfiles = [
