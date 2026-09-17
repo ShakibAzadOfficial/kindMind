@@ -111,8 +111,8 @@ export default function ServicesPage() {
           </div>
           <p className="aboutText">
             Sessions are available in Bengali and English for clients located in New York and New
-            Jersey. Explore the location pages for more detail about care for Brooklyn and West Orange
-            communities.
+            Jersey. Explore the location pages for more detail about care for Brooklyn and West
+            Orange communities.
           </p>
           <div className="aboutActions">
             <Link className="linkButton" href="/bengali-therapist-brooklyn-ny">
