@@ -107,64 +107,6 @@ function BadgeIcon() {
   );
 }
 
-function CounselingScene() {
-  return (
-    <svg
-      viewBox="0 0 640 520"
-      role="img"
-      aria-label="Counseling conversation illustration"
-      className="illustration"
-    >
-      <defs>
-        <linearGradient id="sceneBg" x1="0" y1="0" x2="1" y2="1">
-          <stop offset="0%" stopColor="#f7faf8" />
-          <stop offset="100%" stopColor="#e1ece9" />
-        </linearGradient>
-        <linearGradient id="windowGlow" x1="0" y1="0" x2="1" y2="1">
-          <stop offset="0%" stopColor="#c8e7ef" />
-          <stop offset="100%" stopColor="#edf6f7" />
-        </linearGradient>
-        <linearGradient id="lampGlow" x1="0" y1="0" x2="1" y2="1">
-          <stop offset="0%" stopColor="#f5c57d" />
-          <stop offset="100%" stopColor="#ef9e6e" />
-        </linearGradient>
-        <linearGradient id="chair" x1="0" y1="0" x2="0" y2="1">
-          <stop offset="0%" stopColor="#f1e2d3" />
-          <stop offset="100%" stopColor="#e2d0bf" />
-        </linearGradient>
-      </defs>
-      <rect x="0" y="0" width="640" height="520" rx="32" fill="url(#sceneBg)" />
-      <rect x="34" y="34" width="572" height="452" rx="30" fill="#ffffff" opacity="0.72" />
-      <rect x="66" y="66" width="250" height="170" rx="24" fill="url(#windowGlow)" />
-      <circle cx="204" cy="130" r="34" fill="url(#lampGlow)" />
-      <path d="M76 208c28-24 58-36 90-36 28 0 49 9 70 22 18 11 39 20 66 20v62H76z" fill="#bfdccf" />
-      <rect x="315" y="88" width="156" height="18" rx="9" fill="#d8e2e1" />
-      <rect x="315" y="118" width="198" height="18" rx="9" fill="#d8e2e1" />
-      <rect x="315" y="148" width="173" height="18" rx="9" fill="#d8e2e1" />
-      <rect x="315" y="178" width="140" height="18" rx="9" fill="#d8e2e1" />
-      <rect x="110" y="300" width="168" height="72" rx="36" fill="url(#chair)" />
-      <rect x="310" y="288" width="176" height="96" rx="24" fill="#eae2d6" />
-      <circle cx="372" cy="244" r="26" fill="#f1c9ac" />
-      <path d="M350 280c8-18 20-26 36-26s28 8 36 26v48h-72z" fill="#7b8a86" />
-      <path d="M388 330v104" stroke="#ffffff" strokeWidth="8" strokeLinecap="round" />
-      <path d="M166 326h88" stroke="#9dbbb6" strokeWidth="10" strokeLinecap="round" />
-      <path d="M166 352h108" stroke="#9dbbb6" strokeWidth="10" strokeLinecap="round" />
-      <path d="M246 326v78" stroke="#9dbbb6" strokeWidth="10" strokeLinecap="round" />
-      <path d="M126 326v78" stroke="#9dbbb6" strokeWidth="10" strokeLinecap="round" />
-      <circle cx="176" cy="414" r="40" fill="#6ea58d" />
-      <path
-        d="M176 382v64M154 402c14 8 28 13 44 18M198 402c-14 8-28 13-44 18"
-        stroke="#f7f3ec"
-        strokeWidth="5"
-        strokeLinecap="round"
-      />
-      <path d="M346 308h128" stroke="#c5ac98" strokeWidth="14" strokeLinecap="round" />
-      <path d="M364 332h94" stroke="#c5ac98" strokeWidth="14" strokeLinecap="round" />
-      <path d="M470 322c20 0 34 10 48 24" stroke="#d1e6de" strokeWidth="10" strokeLinecap="round" />
-    </svg>
-  );
-}
-
 export default function Page() {
   return (
     <main className="page homePage">

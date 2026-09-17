@@ -6,6 +6,24 @@ import { buildIntakeEmailUrl } from './intake-email';
 const contactEmail = 'shaiklamisa00@gmail.com';
 const phoneNumber = '(347) 901-8676';
 
+export function prepareIntakeEmail(event, navigate) {
+  event.preventDefault();
+
+  const formData = new FormData(event.currentTarget);
+  navigate(
+    buildIntakeEmailUrl(
+      {
+        firstName: formData.get('firstName'),
+        lastName: formData.get('lastName'),
+        email: formData.get('email'),
+        subject: formData.get('subject'),
+        message: formData.get('message'),
+      },
+      contactEmail,
+    ),
+  );
+}
+
 function Arrow() {
   return (
     <svg viewBox="0 0 24 24" aria-hidden="true" className="icon">
@@ -16,19 +34,9 @@ function Arrow() {
 
 export default function IntakePage() {
   function handleSubmit(event) {
-    event.preventDefault();
-
-    const formData = new FormData(event.currentTarget);
-    window.location.href = buildIntakeEmailUrl(
-      {
-        firstName: formData.get('firstName'),
-        lastName: formData.get('lastName'),
-        email: formData.get('email'),
-        subject: formData.get('subject'),
-        message: formData.get('message'),
-      },
-      contactEmail,
-    );
+    prepareIntakeEmail(event, (emailUrl) => {
+      window.location.href = emailUrl;
+    });
   }
 
   return (

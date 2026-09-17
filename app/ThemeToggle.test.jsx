@@ -26,4 +26,26 @@ describe('ThemeToggle', () => {
     expect(document.documentElement.dataset.theme).toBe('light');
     expect(localStorage.getItem('kindmind-theme')).toBe('light');
   });
+
+  it('reflects a dark theme that was applied before hydration', () => {
+    document.documentElement.dataset.theme = 'dark';
+
+    render(<ThemeToggle />);
+
+    expect(screen.getByRole('button', { name: 'Switch to light mode' })).toHaveAttribute(
+      'aria-pressed',
+      'true',
+    );
+  });
+
+  it('falls back to light mode when no theme was applied before hydration', () => {
+    delete document.documentElement.dataset.theme;
+
+    render(<ThemeToggle />);
+
+    expect(screen.getByRole('button', { name: 'Switch to dark mode' })).toHaveAttribute(
+      'aria-pressed',
+      'false',
+    );
+  });
 });

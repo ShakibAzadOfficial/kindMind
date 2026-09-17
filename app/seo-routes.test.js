@@ -29,7 +29,8 @@ describe('production configuration', () => {
 
 describe('search engine routes', () => {
   it('publishes all public pages in the sitemap', () => {
-    const urls = sitemap().map((entry) => entry.url);
+    const entries = sitemap();
+    const urls = entries.map((entry) => entry.url);
 
     expect(urls).toEqual([
       `${siteUrl}/`,
@@ -40,6 +41,8 @@ describe('search engine routes', () => {
       `${siteUrl}/insurance-fees/`,
     ]);
     expect(urls).not.toContain(`${siteUrl}/intake/`);
+    expect(entries.every((entry) => entry.lastModified instanceof Date)).toBe(true);
+    expect(entries.every((entry) => entry.changeFrequency === 'monthly')).toBe(true);
   });
 
   it('allows public crawling and references the production sitemap', () => {

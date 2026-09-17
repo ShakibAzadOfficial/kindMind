@@ -58,7 +58,11 @@ npm run format:check
 npm run lint
 npm run lint:fix
 npm run test
+npm run test:coverage
 npm run test:watch
 ```
 
 GitHub Actions repeats these checks on pushes to `main` and on pull requests.
+The coverage gate requires 100% statement, branch, function, and line coverage.
+A browsable report is written to
+`coverage/index.html`.

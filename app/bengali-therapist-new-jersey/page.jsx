@@ -148,7 +148,7 @@ export default function BengaliTherapyPage() {
               Learn more about Lamisa
             </Link>
             <Link className="linkButton ghost" href="/bengali-therapist-brooklyn-ny">
-              Explore therapy for Brooklyn clients
+              Explore therapy for New York clients
             </Link>
           </div>
         </div>

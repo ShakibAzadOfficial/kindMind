@@ -26,4 +26,23 @@ describe('buildIntakeEmailUrl', () => {
       'Message:\nI would like to learn more about scheduling.',
     );
   });
+
+  it('preserves punctuation, Unicode names, and multiline messages', () => {
+    const url = buildIntakeEmailUrl(
+      {
+        firstName: 'নুসরাত',
+        lastName: 'Jahan',
+        email: 'nusrat+intake@example.com',
+        subject: 'Therapy: Brooklyn / বাংলা',
+        message: 'First line\nSecond line & follow-up?',
+      },
+      'shaiklamisa00@gmail.com',
+    );
+
+    const parsed = new URL(url);
+
+    expect(parsed.searchParams.get('subject')).toBe('Therapy: Brooklyn / বাংলা');
+    expect(parsed.searchParams.get('body')).toContain('First name: নুসরাত');
+    expect(parsed.searchParams.get('body')).toContain('First line\nSecond line & follow-up?');
+  });
 });

@@ -56,7 +56,7 @@ export const metadata = {
     : {}),
 };
 
-const structuredData = {
+export const structuredData = {
   '@context': 'https://schema.org',
   '@graph': [
     {

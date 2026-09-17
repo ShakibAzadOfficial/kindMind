@@ -333,13 +333,6 @@ html[data-theme='dark'] .languageBangla {
   min-width: 0;
 }
 
-.illustration {
-  width: 100%;
-  height: auto;
-  display: block;
-  filter: drop-shadow(var(--shadow));
-}
-
 .homeHeroPhotoFrame {
   width: min(108%, 650px);
   margin: 0;
