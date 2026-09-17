@@ -245,6 +245,10 @@ a {
   justify-content: center;
 }
 
+.homePage .heroCopy .ctaRow {
+  margin-top: 20px;
+}
+
 .band,
 .panel {
   margin-top: 22px;
