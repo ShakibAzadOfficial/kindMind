@@ -177,7 +177,7 @@ export default function Page() {
           </p>
           <div className="aboutActions">
             <Link className="linkButton" href="/bengali-therapist-brooklyn-ny">
-              Bengali therapist in Brooklyn
+              Bengali therapist in New York
               <Arrow />
             </Link>
             <Link className="linkButton ghost" href="/bengali-therapist-new-jersey">

@@ -22,7 +22,7 @@ describe('public pages', () => {
       'href',
       'https://simplepractice.com',
     );
-    expect(screen.getByRole('link', { name: /Bengali therapist in Brooklyn/i })).toHaveAttribute(
+    expect(screen.getByRole('link', { name: /Bengali therapist in New York/i })).toHaveAttribute(
       'href',
       '/bengali-therapist-brooklyn-ny',
     );
