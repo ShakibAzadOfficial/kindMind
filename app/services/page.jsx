@@ -120,7 +120,7 @@ export default function ServicesPage() {
               <Arrow />
             </Link>
             <Link className="linkButton ghost" href="/bengali-therapist-new-jersey">
-              Bengali therapist in New Jersey
+              Bengali therapist in West Orange
             </Link>
             <Link className="linkButton ghost intakeLinkButton" href="/intake">
               Request an intake screening
