@@ -1,6 +1,16 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import logo from '../../logo/ShaikLamisaLMHC.png';
+import logo from '../../logo/ShaikLamisaLMHC.webp';
+import { siteUrl } from '../site-config';
+
+export const metadata = {
+  title: 'About Lamisa Shaik, Bilingual Therapist',
+  description:
+    'Meet Lamisa Shaik, a Bengali- and English-speaking therapist based in West Orange, NJ, licensed in New Jersey and New York.',
+  alternates: {
+    canonical: `${siteUrl}/about/`,
+  },
+};
 
 const psychologyTodayUrl =
   'https://www.psychologytoday.com/us/therapists/lamisa-shaik-new-york-ny/1517949';
@@ -52,7 +62,10 @@ export default function AboutPage() {
           <p className="eyebrow">About Lamisa</p>
           <h1>Therapy that is steady, respectful, and personal</h1>
           <p className="lead">
-            Hi, I am Lamisa Shaik, LMHC. I bring warmth, clarity, and cultural awareness to my work with children, adolescents, adults, couples, and groups, and I care about helping clients make sense of the pressure they carry, find steadier ground, and build emotional skills that support everyday life.
+            Hi, I am Lamisa Shaik, LMHC, a bilingual Bengali- and English-speaking therapist based
+            in West Orange, New Jersey. I bring warmth, clarity, and cultural awareness to my work
+            with children, adolescents, adults, couples, and groups, helping clients find steadier
+            ground and build emotional skills that support everyday life.
           </p>
           <div className="ctaRow" aria-label="Lamisa's professional profiles">
             {profileLinks.map((profile) => (
@@ -111,7 +124,11 @@ export default function AboutPage() {
             <h2>Areas of support</h2>
           </div>
           <p className="aboutText">
-            My clinical work includes anxiety, ADHD, coping skills, stress and burnout, relationship concerns, family conflict, and the emotional strain that can come with identity and cultural expectations. I am licensed in New York and New Jersey and offer virtual sessions for clients who want care that is flexible and grounded. I also provide group therapy and supervise junior clinicians.
+            My clinical work includes anxiety, ADHD, coping skills, stress and burnout, relationship
+            concerns, family conflict, and the emotional strain that can come with identity and
+            cultural expectations. Based in West Orange, I am licensed in New York and New Jersey
+            and offer virtual sessions in Bengali and English for clients who want care that is
+            flexible and grounded. I also provide group therapy and supervise junior clinicians.
           </p>
         </div>
       </section>

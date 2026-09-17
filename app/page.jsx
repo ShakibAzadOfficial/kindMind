@@ -1,6 +1,16 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import logo from '../logo/ShaikLamisaLMHC.png';
+import logo from '../logo/ShaikLamisaLMHC.webp';
+import { professionalProfiles, siteUrl } from './site-config';
+
+export const metadata = {
+  title: 'Bengali & English Therapist in West Orange, NJ',
+  description:
+    'Lamisa Shaik offers warm, culturally responsive virtual therapy in Bengali and English for clients in New Jersey and New York.',
+  alternates: {
+    canonical: `${siteUrl}/`,
+  },
+};
 
 const practiceHighlights = [
   {
@@ -54,12 +64,12 @@ const processSteps = [
   'Reach out by phone or consult link',
   'Share a little about what brings you in',
   'Match on fit, goals, and availability',
-  'Begin care through a secure intake flow',
+  'Complete next steps through the agreed secure care platform',
 ];
 
 const bookingUrl = process.env.NEXT_PUBLIC_BOOKING_URL || 'https://simplepractice.com';
 const intakeUrl = '/intake';
-const psychologyTodayUrl = 'https://www.psychologytoday.com/us/therapists/lamisa-shaik-new-york-ny/1517949';
+const [psychologyTodayUrl, zocdocUrl, headwayUrl] = professionalProfiles;
 const phoneNumber = '(347) 901-8676';
 
 function Arrow() {
@@ -97,7 +107,12 @@ function BadgeIcon() {
 
 function CounselingScene() {
   return (
-    <svg viewBox="0 0 640 520" role="img" aria-label="Counseling conversation illustration" className="illustration">
+    <svg
+      viewBox="0 0 640 520"
+      role="img"
+      aria-label="Counseling conversation illustration"
+      className="illustration"
+    >
       <defs>
         <linearGradient id="sceneBg" x1="0" y1="0" x2="1" y2="1">
           <stop offset="0%" stopColor="#f7faf8" />
@@ -135,7 +150,12 @@ function CounselingScene() {
       <path d="M246 326v78" stroke="#9dbbb6" strokeWidth="10" strokeLinecap="round" />
       <path d="M126 326v78" stroke="#9dbbb6" strokeWidth="10" strokeLinecap="round" />
       <circle cx="176" cy="414" r="40" fill="#6ea58d" />
-      <path d="M176 382v64M154 402c14 8 28 13 44 18M198 402c-14 8-28 13-44 18" stroke="#f7f3ec" strokeWidth="5" strokeLinecap="round" />
+      <path
+        d="M176 382v64M154 402c14 8 28 13 44 18M198 402c-14 8-28 13-44 18"
+        stroke="#f7f3ec"
+        strokeWidth="5"
+        strokeLinecap="round"
+      />
       <path d="M346 308h128" stroke="#c5ac98" strokeWidth="14" strokeLinecap="round" />
       <path d="M364 332h94" stroke="#c5ac98" strokeWidth="14" strokeLinecap="round" />
       <path d="M470 322c20 0 34 10 48 24" stroke="#d1e6de" strokeWidth="10" strokeLinecap="round" />
@@ -171,10 +191,16 @@ export default function Page() {
 
       <section className="hero">
         <div className="heroCopy">
-          <p className="eyebrow">Virtual therapy for anxiety, ADHD, coping, and relationships</p>
-          <h1>Therapy that feels warm, clear, and human</h1>
+          <p className="eyebrow">
+            Bengali &amp; English virtual therapy in New Jersey and New York
+          </p>
+          <h1>Bilingual therapy that feels warm, clear, and human</h1>
           <p className="lead">
-            Hi, I am Lamisa. If you are feeling overwhelmed, stretched thin, or caught between identity, family expectations, and everyday pressure, you do not have to sort through it alone. I aim to meet people with warmth, curiosity, and a steady kind of care.
+            Hi, I am Lamisa, a bilingual Bengali- and English-speaking therapist based in West
+            Orange, New Jersey. If you are feeling overwhelmed, stretched thin, or caught between
+            identity, family expectations, and everyday pressure, you do not have to sort through it
+            alone. I offer virtual therapy to clients in New Jersey and New York with warmth,
+            curiosity, and steady care.
           </p>
           <div className="ctaRow">
             <a className="linkButton" href={bookingUrl} target="_blank" rel="noreferrer">
@@ -187,16 +213,25 @@ export default function Page() {
             </Link>
           </div>
           <ul className="statusRow" aria-label="At a glance">
-            <li><ShieldIcon /> Accepting new clients</li>
-            <li><BadgeIcon /> Licensed in New York &amp; New Jersey</li>
-            <li><ShieldIcon /> Virtual sessions</li>
+            <li>
+              <ShieldIcon /> Accepting new clients
+            </li>
+            <li>
+              <BadgeIcon /> Licensed in New York &amp; New Jersey
+            </li>
+            <li>
+              <ShieldIcon /> Virtual sessions
+            </li>
+            <li>
+              <BadgeIcon /> Bengali &amp; English
+            </li>
           </ul>
         </div>
         <div className="heroVisual">
           <figure className="homeHeroPhotoFrame">
             <Image
               className="homeHeroPhoto"
-              src="/images/kindmind-therapy-office.png"
+              src="/images/kindmind-therapy-office.webp"
               alt="A warm, sunlit counseling office with comfortable chairs and plants"
               width={1506}
               height={1045}
@@ -204,6 +239,26 @@ export default function Page() {
               priority
             />
           </figure>
+        </div>
+      </section>
+
+      <section className="band">
+        <div className="panel languageSpotlight">
+          <div className="sectionHeading">
+            <p className="eyebrow">Care in your language</p>
+            <h2>Bengali and English therapy</h2>
+          </div>
+          <p className="aboutText">
+            Language can shape how we describe family, identity, stress, and healing. Sessions are
+            available in Bengali or English, with room to move naturally between both languages when
+            that feels most comfortable.
+          </p>
+          <div className="aboutActions">
+            <Link className="linkButton" href="/bengali-therapist-new-jersey">
+              Learn about bilingual therapy
+              <Arrow />
+            </Link>
+          </div>
         </div>
       </section>
 
@@ -249,7 +304,8 @@ export default function Page() {
           </ul>
           <div className="callout">
             <p>
-              Expect a collaborative relationship, honest conversation, and concrete support that makes therapy feel useful outside the room.
+              Expect a collaborative relationship, honest conversation, and concrete support that
+              makes therapy feel useful outside the room.
             </p>
           </div>
         </div>
@@ -293,15 +349,31 @@ export default function Page() {
             <h2>I believe therapy should feel safe enough for honesty</h2>
           </div>
           <p className="aboutText">
-            I work with children, adolescents, adults, couples, and groups navigating anxiety, ADHD, burnout, relationship strain, and the weight of identity and family expectations. My style is warm and direct, and I care about helping people feel understood while also leaving with something concrete they can use in daily life.
+            I work with children, adolescents, adults, couples, and groups navigating anxiety, ADHD,
+            burnout, relationship strain, and the weight of identity and family expectations. My
+            style is warm and direct, and I care about helping people feel understood while also
+            leaving with something concrete they can use in daily life.
           </p>
           <div className="aboutActions">
             <Link className="linkButton" href="/about">
               Read about Lamisa
               <Arrow />
             </Link>
-            <a className="linkButton ghost" href={psychologyTodayUrl} target="_blank" rel="noreferrer">
+            <a
+              className="linkButton ghost"
+              href={psychologyTodayUrl}
+              target="_blank"
+              rel="noreferrer"
+            >
               View Psychology Today
+              <Arrow />
+            </a>
+            <a className="linkButton ghost" href={zocdocUrl} target="_blank" rel="noreferrer">
+              View Zocdoc
+              <Arrow />
+            </a>
+            <a className="linkButton ghost" href={headwayUrl} target="_blank" rel="noreferrer">
+              View Headway
               <Arrow />
             </a>
           </div>
@@ -317,11 +389,17 @@ export default function Page() {
           <div className="cards two">
             <article className="infoCard">
               <h3>Group therapy</h3>
-              <p>Lamisa also works in group therapy settings, helping people connect, reflect, and practice new ways of showing up with others.</p>
+              <p>
+                Lamisa also works in group therapy settings, helping people connect, reflect, and
+                practice new ways of showing up with others.
+              </p>
             </article>
             <article className="infoCard">
               <h3>Supervision</h3>
-              <p>She supervises junior clinicians and supports their growth with care, structure, and a thoughtful clinical lens.</p>
+              <p>
+                She supervises junior clinicians and supports their growth with care, structure, and
+                a thoughtful clinical lens.
+              </p>
             </article>
           </div>
         </div>

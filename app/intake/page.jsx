@@ -2,7 +2,8 @@
 
 import Image from 'next/image';
 import Link from 'next/link';
-import logo from '../../logo/ShaikLamisaLMHC.png';
+import logo from '../../logo/ShaikLamisaLMHC.webp';
+import { buildIntakeEmailUrl } from './intake-email';
 
 const contactEmail = 'shaiklamisa00@gmail.com';
 const phoneNumber = '(347) 901-8676';
@@ -20,17 +21,16 @@ export default function IntakePage() {
     event.preventDefault();
 
     const formData = new FormData(event.currentTarget);
-    const subject = formData.get('subject');
-    const body = [
-      `First name: ${formData.get('firstName')}`,
-      `Last name: ${formData.get('lastName')}`,
-      `Email: ${formData.get('email')}`,
-      '',
-      'Message:',
-      formData.get('message'),
-    ].join('\n');
-
-    window.location.href = `mailto:${contactEmail}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    window.location.href = buildIntakeEmailUrl(
+      {
+        firstName: formData.get('firstName'),
+        lastName: formData.get('lastName'),
+        email: formData.get('email'),
+        subject: formData.get('subject'),
+        message: formData.get('message'),
+      },
+      contactEmail,
+    );
   }
 
   return (
@@ -57,7 +57,9 @@ export default function IntakePage() {
         <p className="eyebrow">Start with a conversation</p>
         <h1>Request an intake screening</h1>
         <p className="lead">
-          Share your contact information and a brief, non-sensitive message. Submitting this request does not guarantee a scheduled session. This is an initial inquiry, and we will reach out to arrange an intake screening.
+          Share your contact information and a brief, non-sensitive message. Submitting this request
+          does not guarantee a scheduled session. This is an initial inquiry, and we will reach out
+          to arrange an intake screening.
         </p>
       </section>
 
@@ -66,7 +68,9 @@ export default function IntakePage() {
           <div className="privacyNotice" id="privacy-guidance">
             <strong>Please protect your privacy</strong>
             <p>
-              This form opens your email app and does not store your information on this website. Email may not be secure. Do not include diagnoses, symptoms, insurance details, medications, or other private health information.
+              This form opens your email app and does not store your information on this website.
+              Email may not be secure. Do not include diagnoses, symptoms, insurance details,
+              medications, or other private health information.
             </p>
           </div>
 
@@ -74,11 +78,23 @@ export default function IntakePage() {
             <div className="formRow">
               <label>
                 <span>First name</span>
-                <input name="firstName" type="text" autoComplete="given-name" maxLength={80} required />
+                <input
+                  name="firstName"
+                  type="text"
+                  autoComplete="given-name"
+                  maxLength={80}
+                  required
+                />
               </label>
               <label>
                 <span>Last name</span>
-                <input name="lastName" type="text" autoComplete="family-name" maxLength={80} required />
+                <input
+                  name="lastName"
+                  type="text"
+                  autoComplete="family-name"
+                  maxLength={80}
+                  required
+                />
               </label>
             </div>
 
@@ -105,7 +121,10 @@ export default function IntakePage() {
 
             <label className="consentRow">
               <input name="privacyAcknowledgement" type="checkbox" required />
-              <span>I understand email may not be secure, and I have not included sensitive health information.</span>
+              <span>
+                I understand email may not be secure, and I have not included sensitive health
+                information.
+              </span>
             </label>
 
             <button className="linkButton intakeSubmit" type="submit">
@@ -120,7 +139,9 @@ export default function IntakePage() {
             <p className="eyebrow">Contact directly</p>
             <h2>Prefer another way?</h2>
           </div>
-          <p className="subtle">You can call or send a brief email to request an intake screening.</p>
+          <p className="subtle">
+            You can call or send a brief email to request an intake screening.
+          </p>
           <div className="intakeContactLinks">
             <a href="tel:3479018676">
               <span>Phone</span>
@@ -132,7 +153,10 @@ export default function IntakePage() {
             </a>
           </div>
           <div className="callout">
-            <p>This page is not monitored for emergencies. If you are in immediate danger, call 911 or go to the nearest emergency room.</p>
+            <p>
+              This page is not monitored for emergencies. If you are in immediate danger, call 911
+              or go to the nearest emergency room.
+            </p>
           </div>
         </aside>
       </section>

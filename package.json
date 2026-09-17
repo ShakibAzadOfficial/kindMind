@@ -6,11 +6,27 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "export": "next build"
+    "export": "next build",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "check": "npm run format:check && npm run lint && npm run test && npm run build"
   },
   "dependencies": {
     "next": "^15.3.1",
     "react": "^19.0.0",
     "react-dom": "^19.0.0"
+  },
+  "devDependencies": {
+    "@testing-library/jest-dom": "^7.0.1",
+    "@testing-library/react": "^16.3.3",
+    "eslint": "^9.39.5",
+    "eslint-config-next": "^15.5.18",
+    "jsdom": "^27.0.1",
+    "prettier": "^3.9.7",
+    "vitest": "^3.2.7"
   }
 }
