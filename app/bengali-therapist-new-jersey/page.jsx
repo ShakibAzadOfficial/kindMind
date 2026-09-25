@@ -1,19 +1,41 @@
+import Image from 'next/image';
 import Link from 'next/link';
 import SiteHeader from '../SiteHeader';
 import { siteUrl } from '../site-config';
 
 export const metadata = {
-  title: 'Bengali Therapist in New Jersey',
+  title: 'Bengali Therapist in West Orange, NJ',
   description:
-    'Virtual therapy in Bengali and English with Lamisa Shaik, a culturally responsive therapist based in West Orange, NJ and Brooklyn, NY.',
+    'Connect with Lamisa Shaik, a Bengali-speaking therapist based in West Orange, NJ, offering culturally responsive virtual therapy across New Jersey.',
+  keywords: [
+    'Bengali therapist West Orange NJ',
+    'Bengali speaking therapist New Jersey',
+    'Bengali therapist NJ',
+    'Bangla therapist New Jersey',
+    'virtual therapist West Orange NJ',
+  ],
   alternates: {
     canonical: `${siteUrl}/bengali-therapist-new-jersey/`,
   },
   openGraph: {
-    title: 'Bengali Therapist in New Jersey and New York',
+    title: 'Bengali Therapist in West Orange, NJ | Lamisa Shaik',
     description:
       'Culturally responsive virtual therapy in Bengali and English with Lamisa Shaik, LMHC, LPC.',
     url: `${siteUrl}/bengali-therapist-new-jersey/`,
+    images: [
+      {
+        url: `${siteUrl}/images/bengali-therapist-session-brooklyn-west-orange.webp`,
+        width: 1536,
+        height: 1024,
+        alt: 'A Bengali-speaking therapist supporting a client in a warm counseling setting',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Bengali Therapist in West Orange, NJ | Lamisa Shaik',
+    description: 'Virtual therapy in Bengali and English for clients across New Jersey.',
+    images: [`${siteUrl}/images/bengali-therapist-session-brooklyn-west-orange.webp`],
   },
 };
 
@@ -42,12 +64,12 @@ export default function BengaliTherapyPage() {
       <section className="languageHero">
         <div>
           <p className="eyebrow">West Orange, New Jersey · Virtual sessions</p>
-          <h1>Bengali and English therapy in New Jersey</h1>
+          <h1>Bengali and English therapist serving West Orange and New Jersey</h1>
           <p className="lead">
-            Therapy can feel more natural when you can speak in the language that best fits the
-            moment. I offer virtual therapy in Bengali and English for clients in New Jersey and New
-            York, with culturally responsive care that makes room for family, identity, values, and
-            lived experience.
+            As a Bengali-speaking therapist based in West Orange, NJ, I offer virtual therapy in
+            Bengali and English for clients throughout New Jersey and New York. Care makes room for
+            family, identity, values, culture, and lived experience, without asking you to translate
+            every part of yourself.
           </p>
           <div className="ctaRow">
             <Link className="linkButton ghost intakeLinkButton" href="/intake">
@@ -68,6 +90,20 @@ export default function BengaliTherapyPage() {
           </p>
         </aside>
       </section>
+
+      <figure className="locationTherapyFigure">
+        <Image
+          className="locationTherapyImage"
+          src="/images/bengali-therapist-session-brooklyn-west-orange.webp"
+          alt="Illustration of a Bengali-speaking therapist supporting a client in a welcoming counseling room"
+          width={1536}
+          height={1024}
+          sizes="(max-width: 1200px) calc(100vw - 32px), 1160px"
+        />
+        <figcaption>
+          Bilingual virtual therapy for clients in West Orange and throughout New Jersey.
+        </figcaption>
+      </figure>
 
       <section className="band">
         <div className="panel">
@@ -140,8 +176,8 @@ export default function BengaliTherapyPage() {
             </article>
           </div>
           <div className="aboutActions">
-            <Link className="linkButton" href="/intake">
-              Start with an intake request
+            <Link className="linkButton intakeLinkButton" href="/intake">
+              Start an intake request
               <Arrow />
             </Link>
             <Link className="linkButton ghost" href="/about">

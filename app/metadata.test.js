@@ -26,6 +26,15 @@ describe('page metadata', () => {
 
     expect(new Set(titles).size).toBe(titles.length);
     expect(rootMetadata.title.default).toContain('Brooklyn');
+    expect(rootMetadata.title.default).toContain('West Orange');
+    expect(brooklynMetadata.keywords).toContain('Bengali speaking therapist Brooklyn NY');
+    expect(newJerseyMetadata.keywords).toContain('Bengali therapist West Orange NJ');
+    expect(brooklynMetadata.openGraph.images[0].url).toContain(
+      'bengali-therapist-session-brooklyn-west-orange.webp',
+    );
+    expect(newJerseyMetadata.openGraph.images[0].url).toContain(
+      'bengali-therapist-session-brooklyn-west-orange.webp',
+    );
   });
 
   it('provides canonical URLs for all indexable pages', () => {

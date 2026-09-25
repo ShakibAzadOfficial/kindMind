@@ -21,7 +21,7 @@ After deployment, submit
 - No backend
 - No database
 - No PHI stored on the site
-- External booking through SimplePractice
+- External scheduling through Headway
 - An initial-contact page that opens the visitor's email application and warns
   visitors not to include private health information
 
@@ -40,7 +40,8 @@ In local development, open `http://localhost:3000/`.
 npm run build
 ```
 
-To point the buttons at your live tools, set `NEXT_PUBLIC_BOOKING_URL` and `NEXT_PUBLIC_INTAKE_URL` before building.
+The Headway scheduling URL and professional profile links are maintained in
+`app/site-config.js`.
 
 ## Quality checks
 

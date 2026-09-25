@@ -1,14 +1,15 @@
 import Image from 'next/image';
 import Link from 'next/link';
+import ImpactStats from './ImpactStats';
 import { professionalProfiles, siteUrl } from './site-config';
 import SiteHeader from './SiteHeader';
 
 export const metadata = {
   title: {
-    absolute: 'Bengali Therapist in Brooklyn, NY & New Jersey | Lamisa Shaik',
+    absolute: 'Bengali Therapist in Brooklyn, NY & West Orange, NJ | Lamisa Shaik',
   },
   description:
-    'Lamisa Shaik offers culturally responsive virtual therapy in Bengali and English from Brooklyn, NY and West Orange, NJ for clients across New York and New Jersey.',
+    'Work with Lamisa Shaik, a Bengali-speaking therapist based in Brooklyn, NY and West Orange, NJ, offering virtual therapy across New York and New Jersey.',
   alternates: {
     canonical: `${siteUrl}/`,
   },
@@ -62,14 +63,46 @@ const insurancePlans = [
   'UnitedHealthcare / UHC | UBH',
 ];
 
+const impactStats = [
+  {
+    value: 3000,
+    suffix: '+',
+    label: 'Lives Supported',
+    detail: 'Through individual therapy, group therapy, and clinician mentorship',
+  },
+  {
+    value: 8,
+    suffix: '+',
+    label: 'Years of clinical experience',
+    detail: 'Supporting children, adults, couples, and families',
+  },
+  {
+    value: 4,
+    suffix: '+',
+    label: 'Years of clinician mentorship',
+    detail: 'Helping newer clinicians grow with structure and care',
+  },
+  {
+    value: 24,
+    suffix: 'h',
+    label: 'Typical response time',
+    detail: 'For new inquiries received during business days',
+  },
+  {
+    value: 2,
+    suffix: '',
+    label: 'Languages offered',
+    detail: 'Therapy in Bengali, English, or a blend of both',
+  },
+];
+
 const processSteps = [
-  'Reach out by phone or consult link',
+  'Schedule through Headway or request an intake screening',
   'Share a little about what brings you in',
   'Match on fit, goals, and availability',
   'Complete next steps through the agreed secure care platform',
 ];
 
-const bookingUrl = process.env.NEXT_PUBLIC_BOOKING_URL || 'https://simplepractice.com';
 const intakeUrl = '/intake';
 const [psychologyTodayUrl, zocdocUrl, headwayUrl] = professionalProfiles;
 const phoneNumber = '(347) 901-8676';
@@ -125,8 +158,13 @@ export default function Page() {
             identity, family expectations, and everyday pressure.
           </p>
           <div className="ctaRow">
-            <a className="linkButton" href={bookingUrl} target="_blank" rel="noreferrer">
-              Schedule a consult
+            <a
+              className="linkButton intakeLinkButton"
+              href={headwayUrl}
+              target="_blank"
+              rel="noreferrer"
+            >
+              Schedule on Headway
               <Arrow />
             </a>
             <Link className="linkButton ghost intakeLinkButton" href={intakeUrl}>
@@ -142,7 +180,7 @@ export default function Page() {
               <BadgeIcon /> Licensed in New York &amp; New Jersey
             </li>
             <li>
-              <ShieldIcon /> Virtual sessions
+              <ShieldIcon /> Telehealth across New York &amp; New Jersey
             </li>
             <li>
               <BadgeIcon /> Bengali &amp; English
@@ -163,6 +201,8 @@ export default function Page() {
           </figure>
         </div>
       </section>
+
+      <ImpactStats stats={impactStats} />
 
       <section className="band">
         <div className="panel languageSpotlight">
@@ -356,11 +396,11 @@ export default function Page() {
               <strong>{phoneNumber}</strong>
             </div>
           </a>
-          <a className="contactItem" href={bookingUrl} target="_blank" rel="noreferrer">
+          <a className="contactItem" href={headwayUrl} target="_blank" rel="noreferrer">
             <Arrow />
             <div>
-              <span className="contactLabel">Consult</span>
-              <strong>Schedule through the booking link</strong>
+              <span className="contactLabel">Headway</span>
+              <strong>Schedule a session online</strong>
             </div>
           </a>
           <Link className="contactItem action" href={intakeUrl}>

@@ -5,6 +5,7 @@
   --text: #14312f;
   --muted: #54706b;
   --line: rgba(20, 49, 47, 0.24);
+  --line-strong: rgba(20, 49, 47, 0.4);
   --accent: #2a7f78;
   --accent-strong: #165e59;
   --accent-soft: #d8ece8;
@@ -20,6 +21,7 @@ html[data-theme='dark'] {
   --text: #edf7f4;
   --muted: #acc5c0;
   --line: rgba(202, 226, 220, 0.3);
+  --line-strong: rgba(202, 226, 220, 0.48);
   --accent-soft: #183b37;
   --shadow: 0 20px 60px rgba(0, 0, 0, 0.28);
   color-scheme: dark;
@@ -371,6 +373,60 @@ html[data-theme='dark'] .languageBangla {
   font-size: clamp(2.7rem, 5vw, 4.8rem);
 }
 
+.impactStrip {
+  margin-top: 36px;
+  padding: 30px 28px 32px;
+  border-radius: 28px;
+  background: linear-gradient(135deg, rgba(216, 236, 232, 0.82), rgba(231, 242, 255, 0.86));
+  box-shadow: var(--shadow);
+}
+
+.impactHeading {
+  max-width: 720px;
+  margin-bottom: 30px;
+}
+
+.impactHeading h2 {
+  max-width: 20ch;
+  margin: 0;
+  font-size: clamp(1.65rem, 3vw, 2.45rem);
+  line-height: 1.08;
+  letter-spacing: -0.025em;
+}
+
+.impactGrid {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: clamp(20px, 3vw, 38px);
+}
+
+.impactMetric {
+  min-width: 0;
+}
+
+.impactValue {
+  display: block;
+  margin-bottom: 12px;
+  color: var(--accent-strong);
+  font-family: Fraunces, 'Cormorant Garamond', ui-serif, Georgia, serif;
+  font-size: clamp(2.7rem, 4.2vw, 4rem);
+  font-optical-sizing: auto;
+  font-weight: 500;
+  line-height: 0.9;
+  letter-spacing: -0.055em;
+}
+
+.impactMetric h3 {
+  margin: 0;
+  font-size: 1rem;
+}
+
+.impactMetric p {
+  margin: 7px 0 0;
+  color: var(--muted);
+  font-size: 0.88rem;
+}
+
 .band,
 .panel {
   margin-top: 22px;
@@ -599,27 +655,27 @@ html[data-theme='dark'] .languageBangla {
 
 .profileLinkButton,
 .profileLinkButton:hover,
-.linkButton.ghost.intakeLinkButton,
-.linkButton.ghost.intakeLinkButton:hover {
+.linkButton.intakeLinkButton,
+.linkButton.intakeLinkButton:hover {
   background: #004eaa;
   color: #ffc252;
 }
 
 .profileLinkButton,
-.linkButton.ghost.intakeLinkButton {
+.linkButton.intakeLinkButton {
   border-color: #004eaa;
   box-shadow: 0 10px 26px rgba(0, 78, 170, 0.22);
 }
 
 .profileLinkButton:hover,
-.linkButton.ghost.intakeLinkButton:hover {
+.linkButton.intakeLinkButton:hover {
   background: #003f8a;
   border-color: #003f8a;
   box-shadow: 0 12px 30px rgba(0, 78, 170, 0.3);
 }
 
 .profileLinkButton:focus-visible,
-.linkButton.ghost.intakeLinkButton:focus-visible {
+.linkButton.intakeLinkButton:focus-visible {
   outline: 3px solid rgba(255, 194, 82, 0.65);
   outline-offset: 3px;
 }
@@ -630,11 +686,77 @@ html[data-theme='dark'] .languageBangla {
 }
 
 .intakeIntro h1 {
-  max-width: 12ch;
+  max-width: 14ch;
   margin: 0;
   font-size: clamp(2.8rem, 6vw, 5rem);
   line-height: 1.02;
   letter-spacing: -0.03em;
+}
+
+.intakeChoices {
+  margin-top: 24px;
+}
+
+.intakeChoiceHeading {
+  max-width: 760px;
+  margin-bottom: 24px;
+}
+
+.intakeChoiceHeading .subtle {
+  margin-bottom: 0;
+}
+
+.intakeChoiceGrid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.intakeChoiceCard {
+  display: flex;
+  min-height: 310px;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 22px;
+  border: 1px solid var(--line-strong);
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.72);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.6);
+}
+
+.intakeChoiceCard.featured {
+  border-color: rgba(0, 78, 170, 0.48);
+  background: linear-gradient(145deg, rgba(231, 242, 255, 0.96), rgba(255, 255, 255, 0.84));
+}
+
+.intakeChoiceNumber {
+  display: grid;
+  width: 38px;
+  height: 38px;
+  margin-bottom: 20px;
+  place-items: center;
+  border: 1px solid var(--line-strong);
+  border-radius: 12px;
+  color: var(--muted);
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+}
+
+.intakeChoiceCard h3 {
+  margin: 3px 0 10px;
+  font-size: 1.35rem;
+}
+
+.intakeChoiceCard > p:not(.eyebrow) {
+  margin: 0 0 22px;
+  color: var(--muted);
+}
+
+.intakeChoiceButton {
+  width: 100%;
+  justify-content: space-between;
+  margin-top: auto;
 }
 
 .intakeLayout {
@@ -647,6 +769,10 @@ html[data-theme='dark'] .languageBangla {
 .intakeFormPanel,
 .intakeContact {
   margin-top: 22px;
+}
+
+.intakeFormHeading {
+  margin-bottom: 20px;
 }
 
 .privacyNotice {
@@ -785,6 +911,31 @@ html[data-theme='dark'] .languageBangla {
 .languageHero .ctaRow {
   margin-top: 22px;
   margin-bottom: 0;
+}
+
+.locationTherapyFigure {
+  margin: 26px 0 8px;
+  padding: 12px;
+  border: 1px solid var(--line);
+  border-radius: 28px;
+  background: var(--surface);
+  box-shadow: var(--shadow);
+}
+
+.locationTherapyImage {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 3 / 2;
+  border-radius: 19px;
+  object-fit: contain;
+  object-position: center;
+}
+
+.locationTherapyFigure figcaption {
+  padding: 12px 6px 2px;
+  color: var(--muted);
+  font-size: 0.92rem;
 }
 
 .languageWelcome {
@@ -931,7 +1082,8 @@ html[data-theme='dark'] .languageBangla {
 
 html[data-theme='dark'] .brandLogo,
 html[data-theme='dark'] .homeHeroPhotoFrame,
-html[data-theme='dark'] .profilePhotoFrame {
+html[data-theme='dark'] .profilePhotoFrame,
+html[data-theme='dark'] .locationTherapyFigure {
   background: rgba(22, 39, 36, 0.94);
 }
 
@@ -941,8 +1093,22 @@ html[data-theme='dark'] .chip,
 html[data-theme='dark'] .pill,
 html[data-theme='dark'] .callout,
 html[data-theme='dark'] .intakeContactLinks a,
+html[data-theme='dark'] .intakeChoiceCard,
 html[data-theme='dark'] .languageFaqGrid article {
   background: rgba(22, 39, 36, 0.88);
+}
+
+html[data-theme='dark'] .intakeChoiceCard.featured {
+  border-color: rgba(92, 161, 238, 0.55);
+  background: linear-gradient(145deg, rgba(16, 58, 91, 0.92), rgba(22, 39, 36, 0.9));
+}
+
+html[data-theme='dark'] .impactStrip {
+  background: linear-gradient(135deg, rgba(24, 59, 55, 0.94), rgba(16, 58, 91, 0.72));
+}
+
+html[data-theme='dark'] .impactValue {
+  color: #7ed4ca;
 }
 
 html[data-theme='dark'] .panel.soft {
@@ -989,6 +1155,7 @@ body,
 .contactItem,
 .profilePhotoFrame,
 .homeHeroPhotoFrame,
+.locationTherapyFigure,
 .intakeForm input,
 .intakeForm textarea {
   transition:
@@ -1006,6 +1173,7 @@ body,
   .splitBand,
   .contactStrip,
   .intakeLayout,
+  .intakeChoiceGrid,
   .languageHero,
   .languageFaqGrid {
     grid-template-columns: 1fr;
@@ -1018,6 +1186,7 @@ body,
   .splitBand,
   .contactStrip,
   .intakeLayout,
+  .intakeChoiceGrid,
   .languageHero,
   .languageFaqGrid {
     display: grid;
@@ -1025,6 +1194,10 @@ body,
 
   .topbar {
     align-items: start;
+  }
+
+  .impactGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   .siteNav {
@@ -1071,6 +1244,14 @@ body,
 
   .heroCopy h1 {
     font-size: clamp(2.7rem, 14vw, 4rem);
+  }
+
+  .impactStrip {
+    padding: 24px 22px 26px;
+  }
+
+  .impactGrid {
+    grid-template-columns: 1fr;
   }
 
   .linkButton {

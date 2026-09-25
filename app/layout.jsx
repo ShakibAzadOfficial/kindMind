@@ -6,7 +6,7 @@ import ThemeToggle from './ThemeToggle';
 export const metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: 'Bengali Therapist in Brooklyn, NY & New Jersey | Lamisa Shaik',
+    default: 'Bengali Therapist in Brooklyn, NY & West Orange, NJ | Lamisa Shaik',
     template: '%s | KindMind Counseling',
   },
   description:
@@ -29,23 +29,23 @@ export const metadata = {
     type: 'website',
     siteName: practice.name,
     locale: 'en_US',
-    title: 'Bengali Therapist in Brooklyn, NY & New Jersey | Lamisa Shaik',
+    title: 'Bengali Therapist in Brooklyn, NY & West Orange, NJ | Lamisa Shaik',
     description:
       'Warm, culturally responsive virtual therapy in Bengali and English for clients in New Jersey and New York.',
     images: [
       {
-        url: `${siteUrl}/images/kindmind-therapy-office.webp`,
-        width: 1506,
-        height: 1045,
-        alt: 'A warm, welcoming counseling office',
+        url: `${siteUrl}/images/bengali-therapist-session-brooklyn-west-orange.webp`,
+        width: 1536,
+        height: 1024,
+        alt: 'A Bengali-speaking therapist supporting a client in a warm counseling setting',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Bengali Therapist in Brooklyn, NY & New Jersey | Lamisa Shaik',
+    title: 'Bengali Therapist in Brooklyn, NY & West Orange, NJ | Lamisa Shaik',
     description: 'Virtual therapy in Bengali and English for clients in New Jersey and New York.',
-    images: [`${siteUrl}/images/kindmind-therapy-office.webp`],
+    images: [`${siteUrl}/images/bengali-therapist-session-brooklyn-west-orange.webp`],
   },
   ...(process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION
     ? {
@@ -113,6 +113,12 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link
+          rel="stylesheet"
+          href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&display=swap"
+        />
         <script
           dangerouslySetInnerHTML={{
             __html: `

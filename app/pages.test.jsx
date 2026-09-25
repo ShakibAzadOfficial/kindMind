@@ -18,10 +18,24 @@ describe('public pages', () => {
         name: 'Bilingual Bengali and English therapy in New York and New Jersey',
       }),
     ).toBeInTheDocument();
-    expect(screen.getByRole('link', { name: /Schedule a consult/i })).toHaveAttribute(
+    const homepageHeadwayLink = screen.getByRole('link', { name: /Schedule on Headway/i });
+    expect(homepageHeadwayLink).toHaveAttribute(
       'href',
-      'https://simplepractice.com',
+      'https://care.headway.co/providers/shaik-lamisa',
     );
+    expect(homepageHeadwayLink).toHaveClass('intakeLinkButton');
+    expect(screen.getByRole('link', { name: /Schedule a session online/i })).toHaveAttribute(
+      'href',
+      'https://care.headway.co/providers/shaik-lamisa',
+    );
+    expect(screen.getByText('Telehealth across New York & New Jersey')).toBeVisible();
+    expect(screen.getByLabelText('8+ Years of clinical experience')).toBeVisible();
+    expect(screen.getByRole('heading', { name: 'Years of clinical experience' })).toBeVisible();
+    expect(screen.getByLabelText('4+ Years of clinician mentorship')).toBeVisible();
+    expect(screen.getByRole('heading', { name: 'Years of clinician mentorship' })).toBeVisible();
+    expect(screen.getByLabelText('24h Typical response time')).toBeVisible();
+    expect(screen.getByRole('heading', { name: 'Typical response time' })).toBeVisible();
+    expect(screen.getByRole('heading', { name: 'Languages offered' })).toBeVisible();
     expect(screen.getByRole('link', { name: /Bengali therapist in New York/i })).toHaveAttribute(
       'href',
       '/bengali-therapist-brooklyn-ny',
@@ -61,12 +75,24 @@ describe('public pages', () => {
     expect(
       screen.getByRole('heading', {
         level: 1,
-        name: 'Bengali and English therapy in New York',
+        name: 'Bengali and English therapist serving Brooklyn and New York',
       }),
     ).toBeVisible();
     expect(
+      screen.getByRole('img', {
+        name: /Bengali-speaking therapist meeting with a client/i,
+      }),
+    ).toHaveAttribute(
+      'src',
+      expect.stringContaining('bengali-therapist-session-brooklyn-west-orange.webp'),
+    );
+    expect(
       screen.getByText(/KindMind Counseling currently describes its services as virtual/),
     ).toBeVisible();
+    expect(screen.getByRole('link', { name: /^Start an intake request/i })).toHaveAttribute(
+      'href',
+      '/intake',
+    );
     expect(screen.getByRole('link', { name: /Review insurance and fees/i })).toHaveAttribute(
       'href',
       '/insurance-fees',
@@ -77,12 +103,23 @@ describe('public pages', () => {
     render(<NewJerseyTherapyPage />);
 
     expect(
-      screen.getByRole('heading', { level: 1, name: 'Bengali and English therapy in New Jersey' }),
+      screen.getByRole('heading', {
+        level: 1,
+        name: 'Bengali and English therapist serving West Orange and New Jersey',
+      }),
     ).toBeVisible();
+    expect(
+      screen.getByRole('img', {
+        name: /Bengali-speaking therapist supporting a client/i,
+      }),
+    ).toHaveAttribute(
+      'src',
+      expect.stringContaining('bengali-therapist-session-brooklyn-west-orange.webp'),
+    );
     expect(
       screen.getByRole('link', { name: /Explore therapy for New York clients/i }),
     ).toHaveAttribute('href', '/bengali-therapist-brooklyn-ny');
-    expect(screen.getByRole('link', { name: /Request an intake screening/i })).toHaveAttribute(
+    expect(screen.getByRole('link', { name: /^Start an intake request/i })).toHaveAttribute(
       'href',
       '/intake',
     );
@@ -133,8 +170,32 @@ describe('intake page', () => {
     expect(screen.getByLabelText('Subject')).toBeRequired();
     expect(screen.getByLabelText('Message')).toBeRequired();
     expect(screen.getByRole('checkbox')).toBeRequired();
-    expect(screen.getByText(/Email may not be secure/)).toBeVisible();
+    expect(screen.getByText(/Email and WhatsApp may not be secure/)).toBeVisible();
     expect(screen.getByRole('button', { name: /Prepare email/i })).toBeEnabled();
+  });
+
+  it('offers direct Headway scheduling plus WhatsApp and email intake paths', () => {
+    render(<IntakePage />);
+
+    expect(screen.getByRole('link', { name: /Schedule on Headway/i })).toHaveAttribute(
+      'href',
+      'https://care.headway.co/providers/shaik-lamisa',
+    );
+
+    const whatsappLinks = screen.getAllByRole('link', { name: /WhatsApp|Send a brief message/i });
+    expect(whatsappLinks).toHaveLength(2);
+    for (const link of whatsappLinks) {
+      expect(link).toHaveAttribute(
+        'href',
+        expect.stringMatching(/^https:\/\/wa\.me\/13479018676\?text=/),
+      );
+      expect(link).toHaveAttribute('target', '_blank');
+    }
+
+    expect(screen.getByRole('link', { name: /Continue to email/i })).toHaveAttribute(
+      'href',
+      '#email-intake',
+    );
   });
 
   it('prepares a complete email from the submitted form values', () => {

@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import Link from 'next/link';
 import SiteHeader from '../SiteHeader';
 import { siteUrl } from '../site-config';
@@ -8,6 +9,13 @@ export const metadata = {
   },
   description:
     'Bengali and English virtual therapy for Brooklyn clients with Lamisa Shaik, an experienced bilingual therapist serving adults, children, couples, and families.',
+  keywords: [
+    'Bengali therapist Brooklyn',
+    'Bengali speaking therapist Brooklyn NY',
+    'Bengali therapist New York',
+    'Bangla therapist Brooklyn',
+    'virtual therapy Brooklyn NY',
+  ],
   alternates: {
     canonical: `${siteUrl}/bengali-therapist-brooklyn-ny/`,
   },
@@ -16,6 +24,20 @@ export const metadata = {
     description:
       'Culturally responsive virtual therapy in Bengali and English for clients across Brooklyn and New York.',
     url: `${siteUrl}/bengali-therapist-brooklyn-ny/`,
+    images: [
+      {
+        url: `${siteUrl}/images/bengali-therapist-session-brooklyn-west-orange.webp`,
+        width: 1536,
+        height: 1024,
+        alt: 'A Bengali-speaking therapist supporting a client in a warm counseling setting',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Bengali Therapist in Brooklyn, NY | Lamisa Shaik',
+    description: 'Virtual therapy in Bengali and English for clients across Brooklyn and New York.',
+    images: [`${siteUrl}/images/bengali-therapist-session-brooklyn-west-orange.webp`],
   },
 };
 
@@ -46,12 +68,12 @@ export default function BrooklynTherapyPage() {
       <section className="languageHero">
         <div>
           <p className="eyebrow">Brooklyn, New York · Virtual sessions</p>
-          <h1>Bengali and English therapy in New York</h1>
+          <h1>Bengali and English therapist serving Brooklyn and New York</h1>
           <p className="lead">
-            Lamisa is a bilingual Bengali- and English-speaking therapist based in New York, with
-            years of experience serving children, adults, and families in Brooklyn community mental
-            health and private-practice settings. Through KindMind Counseling, she offers virtual
-            therapy to clients located throughout New York.
+            Lamisa is a bilingual Bengali- and English-speaking therapist based in Brooklyn, New
+            York, with years of experience serving children, adults, and families in Brooklyn
+            community mental health and private-practice settings. Through KindMind Counseling, she
+            offers virtual therapy to clients located throughout New York.
           </p>
           <div className="ctaRow">
             <Link className="linkButton ghost intakeLinkButton" href="/intake">
@@ -72,6 +94,20 @@ export default function BrooklynTherapyPage() {
           </p>
         </aside>
       </section>
+
+      <figure className="locationTherapyFigure">
+        <Image
+          className="locationTherapyImage"
+          src="/images/bengali-therapist-session-brooklyn-west-orange.webp"
+          alt="Illustration of a Bengali-speaking therapist meeting with a client in a warm counseling room"
+          width={1536}
+          height={1024}
+          sizes="(max-width: 1200px) calc(100vw - 32px), 1160px"
+        />
+        <figcaption>
+          Virtual Bengali and English therapy for clients across Brooklyn and New York.
+        </figcaption>
+      </figure>
 
       <section className="band">
         <div className="panel">
@@ -160,7 +196,7 @@ export default function BrooklynTherapyPage() {
             </article>
           </div>
           <div className="aboutActions">
-            <Link className="linkButton" href="/intake">
+            <Link className="linkButton intakeLinkButton" href="/intake">
               Start an intake request
               <Arrow />
             </Link>
