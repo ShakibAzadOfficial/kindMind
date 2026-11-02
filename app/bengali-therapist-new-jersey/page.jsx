@@ -1,7 +1,8 @@
 import Image from 'next/image';
 import Link from 'next/link';
+import PageStructuredData, { breadcrumbs } from '../PageStructuredData';
 import SiteHeader from '../SiteHeader';
-import { siteUrl } from '../site-config';
+import { practice, siteUrl } from '../site-config';
 
 export const metadata = {
   title: 'Bengali Therapist in West Orange, NJ',
@@ -57,8 +58,33 @@ function Arrow() {
 }
 
 export default function BengaliTherapyPage() {
+  const pageUrl = `${siteUrl}/bengali-therapist-new-jersey/`;
+  const structuredData = {
+    '@context': 'https://schema.org',
+    '@graph': [
+      breadcrumbs([
+        { name: 'Home', url: `${siteUrl}/` },
+        { name: 'Bengali therapist in West Orange, NJ', url: pageUrl },
+      ]),
+      {
+        '@type': 'Service',
+        '@id': `${pageUrl}#service`,
+        name: 'Bengali and English virtual therapy for New Jersey clients',
+        url: pageUrl,
+        provider: { '@id': `${siteUrl}/#practice` },
+        serviceType: 'Virtual psychotherapy in Bengali and English',
+        availableLanguage: practice.languages,
+        areaServed: [
+          { '@type': 'City', name: 'West Orange, New Jersey' },
+          { '@type': 'State', name: 'New Jersey' },
+        ],
+      },
+    ],
+  };
+
   return (
     <main className="page languagePage">
+      <PageStructuredData data={structuredData} />
       <SiteHeader subtitle="Bengali & English therapy" />
 
       <section className="languageHero">

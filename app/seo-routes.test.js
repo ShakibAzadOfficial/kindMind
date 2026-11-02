@@ -36,13 +36,22 @@ describe('search engine routes', () => {
       `${siteUrl}/`,
       `${siteUrl}/about/`,
       `${siteUrl}/services/`,
+      `${siteUrl}/anxiety-therapy/`,
+      `${siteUrl}/adhd-therapy/`,
       `${siteUrl}/bengali-therapist-brooklyn-ny/`,
       `${siteUrl}/bengali-therapist-new-jersey/`,
       `${siteUrl}/insurance-fees/`,
+      `${siteUrl}/resources/`,
+      `${siteUrl}/resources/what-to-expect-first-therapy-session/`,
+      `${siteUrl}/resources/how-to-choose-bengali-speaking-therapist/`,
+      `${siteUrl}/bn/`,
     ]);
     expect(urls).not.toContain(`${siteUrl}/intake/`);
     expect(entries.every((entry) => entry.lastModified instanceof Date)).toBe(true);
-    expect(entries.every((entry) => entry.changeFrequency === 'monthly')).toBe(true);
+    expect(entries.every((entry) => entry.lastModified <= new Date('2026-11-02'))).toBe(true);
+    expect(entries.every((entry) => ['monthly', 'yearly'].includes(entry.changeFrequency))).toBe(
+      true,
+    );
   });
 
   it('allows public crawling and references the production sitemap', () => {

@@ -148,9 +148,9 @@ html[data-theme='dark'] .languageBangla {
 .siteNav {
   display: flex;
   justify-content: flex-end;
-  flex-wrap: wrap;
-  gap: 8px;
-  max-width: 710px;
+  flex-wrap: nowrap;
+  gap: 6px;
+  max-width: none;
   padding-top: 8px;
 }
 
@@ -158,12 +158,13 @@ html[data-theme='dark'] .languageBangla {
   display: inline-flex;
   align-items: center;
   min-height: 42px;
-  padding: 9px 13px;
+  padding: 9px 10px;
   border: 1px solid var(--line);
   border-radius: 999px;
   background: var(--surface);
   color: var(--text);
-  font-size: 0.9rem;
+  font-family: inherit;
+  font-size: 0.82rem;
   font-weight: 700;
   white-space: nowrap;
   box-shadow: 0 6px 18px rgba(20, 49, 47, 0.07);
@@ -173,21 +174,18 @@ html[data-theme='dark'] .languageBangla {
   position: relative;
 }
 
-.locationNav summary {
+.locationNav > .siteNavLink {
+  width: 100%;
   cursor: pointer;
-  list-style: none;
 }
 
-.locationNav summary::-webkit-details-marker {
-  display: none;
-}
-
-.locationNav summary span {
+.locationNav .siteNavLink span {
   margin-left: 7px;
   transition: transform 160ms ease;
 }
 
-.locationNav[open] summary span {
+.locationNav:hover .siteNavLink span,
+.locationNav:focus-within .siteNavLink span {
   transform: rotate(180deg);
 }
 
@@ -203,6 +201,31 @@ html[data-theme='dark'] .languageBangla {
   border-radius: 16px;
   background: var(--surface-strong);
   box-shadow: var(--shadow);
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transform: translateY(-4px);
+  transition:
+    opacity 140ms ease,
+    transform 140ms ease,
+    visibility 140ms ease;
+}
+
+.locationMenu::before {
+  position: absolute;
+  right: 0;
+  bottom: 100%;
+  left: 0;
+  height: 9px;
+  content: '';
+}
+
+.locationNav:hover .locationMenu,
+.locationNav:focus-within .locationMenu {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  transform: translateY(0);
 }
 
 .locationMenu a {
@@ -408,7 +431,7 @@ html[data-theme='dark'] .languageBangla {
   display: block;
   margin-bottom: 12px;
   color: var(--accent-strong);
-  font-family: Fraunces, 'Cormorant Garamond', ui-serif, Georgia, serif;
+  font-family: var(--font-fraunces), 'Cormorant Garamond', ui-serif, Georgia, serif;
   font-size: clamp(2.7rem, 4.2vw, 4rem);
   font-optical-sizing: auto;
   font-weight: 500;
@@ -1202,6 +1225,7 @@ body,
 
   .siteNav {
     justify-content: flex-start;
+    width: 100%;
     max-width: none;
     padding-top: 0;
   }
@@ -1269,6 +1293,11 @@ body,
   .siteNavLink {
     flex: 1 1 calc(50% - 8px);
     justify-content: center;
+    font-size: 0.9rem;
+  }
+
+  .siteNav {
+    flex-wrap: wrap;
   }
 
   .locationNav {
@@ -1282,6 +1311,7 @@ body,
   .locationMenu {
     right: auto;
     left: 0;
+    min-width: 100%;
   }
 
   .cards.two {

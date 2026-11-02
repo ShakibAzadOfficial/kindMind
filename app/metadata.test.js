@@ -1,13 +1,21 @@
 import { afterEach, describe, expect, it, vi } from 'vitest';
 import { metadata as aboutMetadata } from './about/page';
+import { metadata as adhdMetadata } from './adhd-therapy/page';
+import { metadata as anxietyMetadata } from './anxiety-therapy/page';
 import { metadata as brooklynMetadata } from './bengali-therapist-brooklyn-ny/page';
 import { metadata as newJerseyMetadata } from './bengali-therapist-new-jersey/page';
+import { metadata as bengaliMetadata } from './bn/page';
 import { metadata as insuranceMetadata } from './insurance-fees/page';
 import IntakeLayout, { metadata as intakeMetadata } from './intake/layout';
 import RootLayout, { metadata as rootMetadata, structuredData } from './layout';
 import { metadata as homeMetadata } from './page';
 import { metadata as servicesMetadata } from './services/page';
+import { metadata as resourcesMetadata } from './resources/page';
 import { siteUrl } from './site-config';
+
+vi.mock('next/font/google', () => ({
+  Fraunces: () => ({ variable: 'mock-fraunces-variable' }),
+}));
 
 afterEach(() => {
   vi.unstubAllEnvs();
@@ -22,6 +30,10 @@ describe('page metadata', () => {
       newJerseyMetadata.title,
       servicesMetadata.title,
       insuranceMetadata.title,
+      anxietyMetadata.title,
+      adhdMetadata.title,
+      resourcesMetadata.title,
+      bengaliMetadata.title,
     ];
 
     expect(new Set(titles).size).toBe(titles.length);
@@ -44,6 +56,11 @@ describe('page metadata', () => {
     expect(newJerseyMetadata.alternates.canonical).toBe(`${siteUrl}/bengali-therapist-new-jersey/`);
     expect(servicesMetadata.alternates.canonical).toBe(`${siteUrl}/services/`);
     expect(insuranceMetadata.alternates.canonical).toBe(`${siteUrl}/insurance-fees/`);
+    expect(anxietyMetadata.alternates.canonical).toBe(`${siteUrl}/anxiety-therapy/`);
+    expect(adhdMetadata.alternates.canonical).toBe(`${siteUrl}/adhd-therapy/`);
+    expect(resourcesMetadata.alternates.canonical).toBe(`${siteUrl}/resources/`);
+    expect(homeMetadata.alternates.languages.bn).toBe(`${siteUrl}/bn/`);
+    expect(bengaliMetadata.alternates.languages['en-US']).toBe(`${siteUrl}/`);
   });
 
   it('keeps the intake page out of search results', () => {

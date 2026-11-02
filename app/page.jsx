@@ -12,6 +12,10 @@ export const metadata = {
     'Work with Lamisa Shaik, a Bengali-speaking therapist based in Brooklyn, NY and West Orange, NJ, offering virtual therapy across New York and New Jersey.',
   alternates: {
     canonical: `${siteUrl}/`,
+    languages: {
+      'en-US': `${siteUrl}/`,
+      bn: `${siteUrl}/bn/`,
+    },
   },
 };
 
@@ -257,6 +261,14 @@ export default function Page() {
             ))}
           </div>
           <div className="aboutActions">
+            <Link className="linkButton" href="/anxiety-therapy">
+              Anxiety therapy
+              <Arrow />
+            </Link>
+            <Link className="linkButton ghost" href="/adhd-therapy">
+              ADHD therapy
+              <Arrow />
+            </Link>
             <Link className="linkButton ghost" href="/services">
               Explore therapy services
               <Arrow />

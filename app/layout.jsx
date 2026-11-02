@@ -1,7 +1,15 @@
 import './globals.css';
 import Script from 'next/script';
+import { Fraunces } from 'next/font/google';
 import { googleAnalyticsId, practice, professionalProfiles, siteUrl } from './site-config';
+import ConversionTracking from './ConversionTracking';
 import ThemeToggle from './ThemeToggle';
+
+const fraunces = Fraunces({
+  subsets: ['latin'],
+  variable: '--font-fraunces',
+  display: 'swap',
+});
 
 export const metadata = {
   metadataBase: new URL(siteUrl),
@@ -111,14 +119,8 @@ export const structuredData = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="en" className={fraunces.variable} suppressHydrationWarning>
       <head>
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link
-          rel="stylesheet"
-          href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&display=swap"
-        />
         <script
           dangerouslySetInnerHTML={{
             __html: `
@@ -136,6 +138,7 @@ export default function RootLayout({ children }) {
       <body>
         {children}
         <ThemeToggle />
+        <ConversionTracking />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{

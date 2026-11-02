@@ -6,6 +6,8 @@ export function buildIntakeEmailUrl({ firstName, lastName, email, subject, messa
     '',
     'Message:',
     message,
+    '',
+    '--sent via kindmindcounseling',
   ].join('\n');
 
   return `mailto:${recipient}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;

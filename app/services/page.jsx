@@ -1,6 +1,7 @@
 import Link from 'next/link';
+import PageStructuredData, { breadcrumbs } from '../PageStructuredData';
 import SiteHeader from '../SiteHeader';
-import { siteUrl } from '../site-config';
+import { practice, siteUrl } from '../site-config';
 
 export const metadata = {
   title: 'Therapy Services for Anxiety, ADHD, Burnout, and Relationships',
@@ -53,8 +54,32 @@ function Arrow() {
 }
 
 export default function ServicesPage() {
+  const pageUrl = `${siteUrl}/services/`;
+  const structuredData = {
+    '@context': 'https://schema.org',
+    '@graph': [
+      breadcrumbs([
+        { name: 'Home', url: `${siteUrl}/` },
+        { name: 'Services', url: pageUrl },
+      ]),
+      {
+        '@type': 'Service',
+        '@id': `${pageUrl}#service`,
+        name: 'Virtual psychotherapy services',
+        url: pageUrl,
+        provider: { '@id': `${siteUrl}/#practice` },
+        serviceType: services.map((service) => service.title),
+        areaServed: practice.serviceAreas.map((area) => ({
+          '@type': area.type,
+          name: area.name,
+        })),
+      },
+    ],
+  };
+
   return (
     <main className="page languagePage">
+      <PageStructuredData data={structuredData} />
       <SiteHeader subtitle="Therapy services" />
 
       <section className="intakeIntro">
@@ -73,6 +98,12 @@ export default function ServicesPage() {
             <article className="infoCard" key={service.title}>
               <h2>{service.title}</h2>
               <p>{service.text}</p>
+              {service.title === 'Anxiety therapy' && (
+                <Link href="/anxiety-therapy">Learn about anxiety therapy</Link>
+              )}
+              {service.title === 'ADHD support' && (
+                <Link href="/adhd-therapy">Learn about ADHD therapy</Link>
+              )}
             </article>
           ))}
         </div>

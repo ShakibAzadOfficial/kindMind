@@ -224,6 +224,9 @@ describe('intake page', () => {
     expect(preparedUrl.searchParams.get('subject')).toBe('Availability');
     expect(preparedUrl.searchParams.get('body')).toContain('First name: Amina');
     expect(preparedUrl.searchParams.get('body')).toContain('Please share the next steps.');
+    expect(preparedUrl.searchParams.get('body').endsWith('--sent via kindmindcounseling')).toBe(
+      true,
+    );
   });
 
   it('hands a submitted intake request to the browser email client', () => {

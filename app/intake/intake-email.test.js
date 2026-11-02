@@ -25,6 +25,7 @@ describe('buildIntakeEmailUrl', () => {
     expect(parsed.searchParams.get('body')).toContain(
       'Message:\nI would like to learn more about scheduling.',
     );
+    expect(parsed.searchParams.get('body').endsWith('--sent via kindmindcounseling')).toBe(true);
   });
 
   it('preserves punctuation, Unicode names, and multiline messages', () => {

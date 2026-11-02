@@ -14,19 +14,26 @@ const stats = [
 let intersectionCallback;
 let animationFrames;
 let disconnect;
+let observedElement;
+let observerOptions;
 
 beforeEach(() => {
   animationFrames = [];
   disconnect = vi.fn();
+  observedElement = null;
+  observerOptions = null;
 
   vi.stubGlobal(
     'IntersectionObserver',
     class {
-      constructor(callback) {
+      constructor(callback, options) {
         intersectionCallback = callback;
+        observerOptions = options;
       }
 
-      observe() {}
+      observe(element) {
+        observedElement = element;
+      }
 
       unobserve() {}
 
@@ -59,6 +66,8 @@ describe('ImpactStats', () => {
   it('counts to the final values once the section enters view', () => {
     const { unmount } = render(<ImpactStats stats={stats} />);
 
+    expect(observedElement).toHaveClass('impactMetric');
+    expect(observerOptions).toEqual({ rootMargin: '0px 0px -10% 0px', threshold: 0.5 });
     expect(screen.getByLabelText('8+ Years of clinical experience')).toHaveTextContent('0+');
 
     act(() => intersectionCallback([{ isIntersecting: false }]));

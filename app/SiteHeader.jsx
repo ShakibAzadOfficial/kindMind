@@ -15,6 +15,13 @@ const locations = [
   { label: 'West Orange, NJ', href: '/bengali-therapist-new-jersey' },
 ];
 
+const resources = [
+  { label: 'Anxiety therapy', href: '/anxiety-therapy' },
+  { label: 'ADHD therapy', href: '/adhd-therapy' },
+  { label: 'Therapy resources', href: '/resources' },
+  { label: 'বাংলা', href: '/bn' },
+];
+
 export default function SiteHeader({ subtitle }) {
   return (
     <header className="topbar siteHeader">
@@ -38,10 +45,10 @@ export default function SiteHeader({ subtitle }) {
             {item.label}
           </Link>
         ))}
-        <details className="locationNav">
-          <summary className="siteNavLink">
+        <div className="locationNav">
+          <button className="siteNavLink" type="button" aria-haspopup="true">
             Locations <span aria-hidden="true">▾</span>
-          </summary>
+          </button>
           <div className="locationMenu">
             {locations.map((location) => (
               <Link href={location.href} key={location.href}>
@@ -49,7 +56,19 @@ export default function SiteHeader({ subtitle }) {
               </Link>
             ))}
           </div>
-        </details>
+        </div>
+        <div className="locationNav">
+          <button className="siteNavLink" type="button" aria-haspopup="true">
+            Resources <span aria-hidden="true">▾</span>
+          </button>
+          <div className="locationMenu">
+            {resources.map((resource) => (
+              <Link href={resource.href} key={resource.href}>
+                {resource.label}
+              </Link>
+            ))}
+          </div>
+        </div>
         {navigation.slice(3).map((item) => (
           <Link
             className={`siteNavLink${item.emphasized ? ' emphasized' : ''}`}

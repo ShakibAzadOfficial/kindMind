@@ -1,4 +1,4 @@
-import { fireEvent, render, screen } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
 import { describe, expect, it } from 'vitest';
 import SiteHeader from './SiteHeader';
 
@@ -10,7 +10,10 @@ describe('SiteHeader', () => {
     expect(screen.getByRole('link', { name: 'About Lamisa' })).toHaveAttribute('href', '/about');
     expect(screen.getByRole('link', { name: 'Services' })).toHaveAttribute('href', '/services');
 
-    fireEvent.click(screen.getByText('Locations'));
+    expect(screen.getByRole('button', { name: 'Locations' })).toHaveAttribute(
+      'aria-haspopup',
+      'true',
+    );
 
     expect(screen.getByRole('link', { name: 'Brooklyn, NY' })).toHaveAttribute(
       'href',
@@ -20,6 +23,24 @@ describe('SiteHeader', () => {
       'href',
       '/bengali-therapist-new-jersey',
     );
+    expect(screen.getByRole('button', { name: 'Resources' })).toHaveAttribute(
+      'aria-haspopup',
+      'true',
+    );
+
+    expect(screen.getByRole('link', { name: 'Anxiety therapy' })).toHaveAttribute(
+      'href',
+      '/anxiety-therapy',
+    );
+    expect(screen.getByRole('link', { name: 'ADHD therapy' })).toHaveAttribute(
+      'href',
+      '/adhd-therapy',
+    );
+    expect(screen.getByRole('link', { name: 'Therapy resources' })).toHaveAttribute(
+      'href',
+      '/resources',
+    );
+    expect(screen.getByRole('link', { name: 'বাংলা' })).toHaveAttribute('href', '/bn');
     expect(screen.getByRole('link', { name: 'Insurance & Fees' })).toHaveAttribute(
       'href',
       '/insurance-fees',

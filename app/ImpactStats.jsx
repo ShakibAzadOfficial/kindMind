@@ -2,10 +2,10 @@
 
 import { useEffect, useRef, useState } from 'react';
 
-const animationDuration = 1000;
+const animationDuration = 2000;
 
 export default function ImpactStats({ stats }) {
-  const sectionRef = useRef(null);
+  const firstMetricRef = useRef(null);
   const [hasEnteredView, setHasEnteredView] = useState(false);
   const [progress, setProgress] = useState(0);
 
@@ -17,10 +17,10 @@ export default function ImpactStats({ stats }) {
         setHasEnteredView(true);
         observer.disconnect();
       },
-      { threshold: 0.3 },
+      { rootMargin: '0px 0px -10% 0px', threshold: 0.5 },
     );
 
-    observer.observe(sectionRef.current);
+    observer.observe(firstMetricRef.current);
     return () => observer.disconnect();
   }, []);
 
@@ -48,14 +48,18 @@ export default function ImpactStats({ stats }) {
   }, [hasEnteredView]);
 
   return (
-    <section className="impactStrip" aria-labelledby="impact-heading" ref={sectionRef}>
+    <section className="impactStrip" aria-labelledby="impact-heading">
       <div className="impactHeading">
         <p className="eyebrow">Experience at a glance</p>
         <h2 id="impact-heading">Care grounded in experience and responsiveness</h2>
       </div>
       <div className="impactGrid">
-        {stats.map((stat) => (
-          <article className="impactMetric" key={stat.label}>
+        {stats.map((stat, index) => (
+          <article
+            className="impactMetric"
+            key={stat.label}
+            ref={index === 0 ? firstMetricRef : undefined}
+          >
             <strong
               className="impactValue"
               aria-label={`${stat.value}${stat.suffix} ${stat.label}`}
