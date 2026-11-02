@@ -1,11 +1,17 @@
 import { fireEvent, render, screen, within } from '@testing-library/react';
 import { describe, expect, it, vi } from 'vitest';
 import AboutPage from './about/page';
+import AdhdTherapyPage from './adhd-therapy/page';
+import AnxietyTherapyPage from './anxiety-therapy/page';
 import BrooklynTherapyPage from './bengali-therapist-brooklyn-ny/page';
 import NewJerseyTherapyPage from './bengali-therapist-new-jersey/page';
+import BengaliPage from './bn/page';
 import InsuranceFeesPage from './insurance-fees/page';
 import IntakePage, { prepareIntakeEmail } from './intake/page';
 import HomePage from './page';
+import ChoosingBengaliTherapistArticle from './resources/how-to-choose-bengali-speaking-therapist/page';
+import ResourcesPage from './resources/page';
+import FirstTherapySessionArticle from './resources/what-to-expect-first-therapy-session/page';
 import ServicesPage from './services/page';
 
 describe('public pages', () => {
@@ -157,6 +163,38 @@ describe('public pages', () => {
       'href',
       '/intake',
     );
+  });
+
+  it('renders the specialty, Bengali, and educational SEO pages', () => {
+    const pages = [
+      {
+        component: <AnxietyTherapyPage />,
+        heading: 'Anxiety therapy in New York and New Jersey',
+      },
+      {
+        component: <AdhdTherapyPage />,
+        heading: 'ADHD therapy in New York and New Jersey',
+      },
+      {
+        component: <BengaliPage />,
+        heading: 'নিজের ভাষায় কথা বলার জন্য একটি শান্ত ও সহযোগিতামূলক জায়গা',
+      },
+      { component: <ResourcesPage />, heading: 'Therapy resources and practical guides' },
+      {
+        component: <FirstTherapySessionArticle />,
+        heading: 'What to expect in your first therapy session',
+      },
+      {
+        component: <ChoosingBengaliTherapistArticle />,
+        heading: 'How to choose a Bengali-speaking therapist',
+      },
+    ];
+
+    for (const page of pages) {
+      const { unmount } = render(page.component);
+      expect(screen.getByRole('heading', { level: 1, name: page.heading })).toBeVisible();
+      unmount();
+    }
   });
 });
 

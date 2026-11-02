@@ -32,10 +32,12 @@ export default function ImpactStats({ stats }) {
       return undefined;
     }
 
-    const startedAt = performance.now();
+    let startedAt;
     let frameId;
 
     function updateCount(timestamp) {
+      if (startedAt === undefined) startedAt = timestamp;
+
       const linearProgress = Math.min((timestamp - startedAt) / animationDuration, 1);
       const easedProgress = 1 - Math.pow(1 - linearProgress, 3);
       setProgress(easedProgress);

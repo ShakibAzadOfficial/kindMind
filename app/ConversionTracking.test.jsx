@@ -55,4 +55,63 @@ describe('ConversionTracking', () => {
       page_path: '/',
     });
   });
+
+  it('classifies every contact link and ignores unrelated interactions', () => {
+    window.gtag = vi.fn();
+    render(
+      <>
+        <ConversionTracking />
+        <a href="mailto:hello@example.com" onClick={(event) => event.preventDefault()}>
+          Email
+        </a>
+        <a href="tel:13479018676" onClick={(event) => event.preventDefault()}>
+          Phone
+        </a>
+        <a href="/intake" onClick={(event) => event.preventDefault()}>
+          Intake
+        </a>
+        <a href="/about" onClick={(event) => event.preventDefault()}>
+          About
+        </a>
+        <button type="button">No link</button>
+        <form aria-label="Untracked form">
+          <button type="submit">Submit other form</button>
+        </form>
+      </>,
+    );
+
+    for (const name of ['Email', 'Phone', 'Intake', 'About', 'No link']) {
+      fireEvent.click(screen.getByRole(name === 'No link' ? 'button' : 'link', { name }));
+    }
+    fireEvent.submit(screen.getByRole('form', { name: 'Untracked form' }));
+
+    expect(window.gtag).toHaveBeenCalledTimes(3);
+    expect(window.gtag).toHaveBeenCalledWith('event', 'contact_action', {
+      contact_method: 'email',
+      page_path: '/',
+    });
+    expect(window.gtag).toHaveBeenCalledWith('event', 'contact_action', {
+      contact_method: 'phone',
+      page_path: '/',
+    });
+    expect(window.gtag).toHaveBeenCalledWith('event', 'contact_action', {
+      contact_method: 'intake',
+      page_path: '/',
+    });
+  });
+
+  it('does not require Google Analytics to be available', () => {
+    render(
+      <>
+        <ConversionTracking />
+        <a href="mailto:hello@example.com" onClick={(event) => event.preventDefault()}>
+          Email without analytics
+        </a>
+      </>,
+    );
+
+    expect(() =>
+      fireEvent.click(screen.getByRole('link', { name: 'Email without analytics' })),
+    ).not.toThrow();
+  });
 });

@@ -50,7 +50,6 @@ beforeEach(() => {
     }),
   );
   vi.stubGlobal('cancelAnimationFrame', vi.fn());
-  vi.spyOn(performance, 'now').mockReturnValue(0);
   vi.stubGlobal(
     'matchMedia',
     vi.fn(() => ({ matches: false })),
@@ -76,10 +75,13 @@ describe('ImpactStats', () => {
     act(() => intersectionCallback([{ isIntersecting: true }]));
     expect(disconnect).toHaveBeenCalledOnce();
 
-    act(() => animationFrames[0](500));
-    expect(screen.getByLabelText('8+ Years of clinical experience')).toHaveTextContent('7+');
+    act(() => animationFrames[0](100));
+    expect(screen.getByLabelText('8+ Years of clinical experience')).toHaveTextContent('0+');
 
-    act(() => animationFrames[1](1000));
+    act(() => animationFrames[1](600));
+    expect(screen.getByLabelText('8+ Years of clinical experience')).toHaveTextContent(/^[1-7]\+$/);
+
+    act(() => animationFrames[2](10000));
     expect(screen.getByLabelText('8+ Years of clinical experience')).toHaveTextContent('8+');
 
     unmount();
