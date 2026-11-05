@@ -177,7 +177,7 @@ describe('public pages', () => {
       },
       {
         component: <BengaliPage />,
-        heading: 'নিজের ভাষায় কথা বলার জন্য একটি শান্ত ও সহযোগিতামূলক জায়গা',
+        heading: 'বাংলা বা ইংরেজিতে মন খুলে কথা বলার জায়গা',
       },
       { component: <ResourcesPage />, heading: 'Therapy resources and practical guides' },
       {
