@@ -85,6 +85,10 @@ export default function AboutPage() {
         </div>
         <div className="heroVisual">
           <figure className="profilePhotoFrame">
+            <div className="profileAvailability" role="status">
+              <span className="profileAvailabilityDot" aria-hidden="true" />
+              Accepting new clients
+            </div>
             <Image
               className="profilePhoto"
               src="/images/lamisa-shaik-profile.jpeg"

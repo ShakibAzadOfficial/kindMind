@@ -59,6 +59,7 @@ describe('public pages', () => {
   it('renders detailed expectations and résumé-backed authority on the About page', () => {
     render(<AboutPage />);
 
+    expect(screen.getByRole('status')).toHaveTextContent('Accepting new clients');
     const expectations = screen
       .getByRole('heading', { name: 'What clients can expect from me' })
       .closest('.panel');

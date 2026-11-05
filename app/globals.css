@@ -646,6 +646,7 @@ html[data-theme='dark'] .languageBangla {
 }
 
 .profilePhotoFrame {
+  position: relative;
   width: min(100%, 430px);
   margin: 0 auto;
   padding: 14px;
@@ -653,6 +654,40 @@ html[data-theme='dark'] .languageBangla {
   border-radius: 30px;
   background: rgba(255, 255, 255, 0.82);
   box-shadow: var(--shadow);
+}
+
+.profileAvailability {
+  position: absolute;
+  top: 0;
+  right: 18px;
+  z-index: 2;
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  min-height: 40px;
+  padding: 9px 14px;
+  border: 1px solid rgba(20, 49, 47, 0.18);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.94);
+  color: #14312f;
+  font-size: 0.82rem;
+  font-weight: 700;
+  line-height: 1;
+  white-space: nowrap;
+  box-shadow:
+    0 8px 22px rgba(20, 49, 47, 0.18),
+    0 0 0 4px rgba(255, 255, 255, 0.35);
+  backdrop-filter: blur(8px);
+  transform: translateY(-50%);
+}
+
+.profileAvailabilityDot {
+  width: 9px;
+  height: 9px;
+  flex: 0 0 auto;
+  border-radius: 50%;
+  background: #08b77a;
+  box-shadow: 0 0 0 4px rgba(8, 183, 122, 0.12);
 }
 
 .profilePhoto {
@@ -1110,6 +1145,15 @@ html[data-theme='dark'] .locationTherapyFigure {
   background: rgba(22, 39, 36, 0.94);
 }
 
+html[data-theme='dark'] .profileAvailability {
+  border-color: rgba(126, 212, 202, 0.25);
+  background: rgba(11, 25, 23, 0.94);
+  color: #eef8f5;
+  box-shadow:
+    0 8px 22px rgba(0, 0, 0, 0.34),
+    0 0 0 4px rgba(126, 212, 202, 0.08);
+}
+
 html[data-theme='dark'] .statusRow li,
 html[data-theme='dark'] .infoCard,
 html[data-theme='dark'] .chip,
@@ -1252,6 +1296,13 @@ body,
     width: 96px;
     height: 96px;
     border-radius: 20px;
+  }
+
+  .profileAvailability {
+    right: 16px;
+    min-height: 36px;
+    padding: 8px 12px;
+    font-size: 0.76rem;
   }
 
   .themeToggle {
